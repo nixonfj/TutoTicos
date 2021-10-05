@@ -6,7 +6,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "ac.ucr.tutoticos"
+        applicationId "com.example.tutoticos"
         minSdk 23
         targetSdk 31
         versionCode 1
