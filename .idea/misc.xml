@@ -3,13 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/angel/AndroidStudioProjects/Tutoticos/app/src/main/res/drawable/boton_elegir_foto.xml" value="0.19583333333333333" />
-        <entry key="..\:/Users/angel/AndroidStudioProjects/Tutoticos/app/src/main/res/drawable/ic_cuenta.xml" value="0.19583333333333333" />
-        <entry key="..\:/Users/angel/AndroidStudioProjects/Tutoticos/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/angel/AndroidStudioProjects/Tutoticos/app/src/main/res/layout/lyt_datos_principales.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/angel/AndroidStudioProjects/Tutoticos/app/src/main/res/layout/lyt_registro.xml" value="0.22" />
-        <entry key="..\:/Users/angel/AndroidStudioProjects/Tutoticos/app/src/main/res/layout/lyt_tipo_cuenta.xml" value="0.1796875" />
-        <entry key="..\:/Users/angel/AndroidStudioProjects/Tutoticos/app/src/main/res/layout/lyt_tipo_usuario.xml" value="0.184375" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_comentarios_tutor.xml" value="0.25" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_datos_principales.xml" value="0.264" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_iniciosesion.xml" value="0.23777173913043478" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_perfiltutor.xml" value="0.264" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_registro.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_tipo_usuario.xml" value="0.20018115942028986" />
       </map>
     </option>
   </component>
