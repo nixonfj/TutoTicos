@@ -75,6 +75,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginRight="150dp"
                             android:layout_weight="1"
+                            android:fontFamily="@font/nunito"
                             android:text="Novedades"
                             android:textColor="#000000"
                             android:textSize="24sp" />
@@ -84,6 +85,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:fontFamily="@font/nunito"
                             android:text="Ver mas >"
                             android:textColor="#000000"
                             android:textSize="16sp" />
@@ -124,18 +126,20 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:fontFamily="@font/nunito"
                             android:text="Calificacion"
                             android:textAlignment="center"
-                            android:textColor="#020202" />
+                            android:textColor="#000000" />
 
                         <TextView
                             android:id="@+id/perfiltutor_txt_editarperfil"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:fontFamily="@font/nunito"
                             android:text="Editar cuenta"
                             android:textAlignment="center"
-                            android:textColor="#020202" />
+                            android:textColor="#000000" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -155,6 +159,7 @@
                                 android:layout_width="80dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/nunito"
                                 android:text="Nombre"
                                 android:textColor="#000000"
                                 android:textSize="16sp" />
@@ -164,6 +169,7 @@
                                 android:layout_width="100dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/nunito"
                                 android:text="Lorem Ipsum"
                                 android:textColor="#000000"
                                 android:textSize="16sp" />
@@ -180,6 +186,7 @@
                                 android:layout_width="80dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/nunito"
                                 android:text="Apellido"
                                 android:textColor="#000000"
                                 android:textSize="16sp" />
@@ -189,6 +196,7 @@
                                 android:layout_width="100dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/nunito"
                                 android:text="Lorem Ipsum"
                                 android:textColor="#000000"
                                 android:textSize="16sp" />
@@ -206,6 +214,7 @@
                                 android:layout_width="80dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/nunito"
                                 android:text="Precio"
                                 android:textColor="#000000"
                                 android:textSize="16sp" />
@@ -215,6 +224,7 @@
                                 android:layout_width="100dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/nunito"
                                 android:text="10000"
                                 android:textColor="#000000"
                                 android:textSize="16sp" />
@@ -232,6 +242,7 @@
                                 android:layout_width="80dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/nunito"
                                 android:text="Modalidad"
                                 android:textColor="#000000"
                                 android:textSize="16sp" />
@@ -241,6 +252,7 @@
                                 android:layout_width="100dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/nunito"
                                 android:text="Virtual"
                                 android:textColor="#000000"
                                 android:textSize="16sp" />
@@ -260,6 +272,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/nunito"
                         android:text="Servicios"
                         android:textColor="#000000"
                         android:textSize="24sp" />
@@ -276,6 +289,7 @@
                             android:layout_marginRight="5dp"
                             android:layout_weight="1"
                             android:backgroundTint="#DFD7D7"
+                            android:fontFamily="@font/nunito"
                             android:text="Materia"
                             android:textAlignment="center"
                             android:textColor="#000000"
@@ -289,6 +303,7 @@
                             android:layout_marginRight="5dp"
                             android:layout_weight="1"
                             android:backgroundTint="#DFD7D7"
+                            android:fontFamily="@font/nunito"
                             android:text="Materia"
                             android:textAlignment="center"
                             android:textColor="#000000"
@@ -302,6 +317,7 @@
                             android:layout_marginRight="5dp"
                             android:layout_weight="1"
                             android:backgroundTint="#DFD7D7"
+                            android:fontFamily="@font/nunito"
                             android:text="Materia"
                             android:textAlignment="center"
                             android:textColor="#000000"
@@ -315,6 +331,7 @@
                             android:layout_marginRight="5dp"
                             android:layout_weight="1"
                             android:backgroundTint="#DFD7D7"
+                            android:fontFamily="@font/nunito"
                             android:text="Materia"
                             android:textAlignment="center"
                             android:textColor="#000000"
@@ -327,6 +344,7 @@
                             android:layout_marginLeft="5dp"
                             android:layout_weight="1"
                             android:backgroundTint="#DFD7D7"
+                            android:fontFamily="@font/nunito"
                             android:text="Materia"
                             android:textAlignment="center"
                             android:textColor="#000000"
@@ -347,6 +365,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/nunito"
                         android:text="Sobre mi"
                         android:textColor="#000000"
                         android:textSize="24sp" />
@@ -355,6 +374,7 @@
                         android:id="@+id/textView24"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito"
                         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                         android:textColor="#000000"
                         android:textSize="16sp" />
@@ -379,6 +399,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginRight="90dp"
                             android:layout_weight="1"
+                            android:fontFamily="@font/nunito"
                             android:text="Horario disponible"
                             android:textColor="#000000"
                             android:textSize="24sp" />
@@ -388,6 +409,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:fontFamily="@font/nunito"
                             android:text="Modificar >"
                             android:textColor="#000000"
                             android:textSize="16sp" />
@@ -409,6 +431,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/nunito"
                                 android:text="Lunes"
                                 android:textColor="#000000"
                                 android:textSize="16sp" />
@@ -418,6 +441,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/nunito"
                                 android:text="9:00"
                                 android:textColor="#000000"
                                 android:textSize="16sp" />
@@ -427,6 +451,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/nunito"
                                 android:text="13:00"
                                 android:textColor="#000000"
                                 android:textSize="16sp" />
@@ -436,6 +461,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:fontFamily="@font/nunito"
                                 android:text="18:00"
                                 android:textColor="#000000"
                                 android:textSize="16sp" />
@@ -457,6 +483,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
+                        android:fontFamily="@font/nunito"
                         android:text="Proxima Clase"
                         android:textAlignment="center"
                         android:textColor="#000000"
@@ -473,9 +500,10 @@
                             android:layout_width="20dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:fontFamily="@font/nunito"
                             android:text="20     Sep"
                             android:textAlignment="center"
-                            android:textColor="#FFFFFF"
+                            android:textColor="#000000"
                             android:textSize="42sp" />
 
                         <LinearLayout
@@ -495,8 +523,9 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:fontFamily="@font/nunito"
                                     android:text="Nombre:"
-                                    android:textColor="#FFFFFF"
+                                    android:textColor="#000000"
                                     android:textSize="16sp" />
 
                                 <TextView
@@ -504,9 +533,10 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:fontFamily="@font/nunito"
                                     android:text="Lorem Ipsum"
                                     android:textAlignment="textStart"
-                                    android:textColor="#FFFFFF"
+                                    android:textColor="#000000"
                                     android:textSize="16sp" />
                             </LinearLayout>
 
@@ -520,8 +550,9 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:fontFamily="@font/nunito"
                                     android:text="Materia:"
-                                    android:textColor="#FFFFFF"
+                                    android:textColor="#000000"
                                     android:textSize="16sp" />
 
                                 <TextView
@@ -529,9 +560,10 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
+                                    android:fontFamily="@font/nunito"
                                     android:text="Lorem"
                                     android:textAlignment="textStart"
-                                    android:textColor="#FFFFFF"
+                                    android:textColor="#000000"
                                     android:textSize="16sp" />
                             </LinearLayout>
 
@@ -575,9 +607,15 @@
                         android:id="@+id/textView40"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito"
                         android:text="Mis Comentarios"
                         android:textColor="#000000"
                         android:textSize="24sp" />
+
+                    <ListView
+                        android:id="@+id/perfiltutor_lista_comentarios"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
 
             </LinearLayout>
