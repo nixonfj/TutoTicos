@@ -94,9 +94,10 @@
                     <ImageView
                         android:id="@+id/imageView5"
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_height="200dp"
                         android:layout_marginBottom="20dp"
-                        app:srcCompat="@drawable/logoamarillohorizontal" />
+                        android:scaleType="centerCrop"
+                        tools:srcCompat="@drawable/intellectual_man_reading_book_sitting_in_library_in_front_of_bookshelves_with_cup_of_coffee_on_hands" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -498,7 +499,7 @@
                             android:fontFamily="@font/nunito"
                             android:text="20     Sep"
                             android:textAlignment="center"
-                            android:textColor="#000000"
+                            android:textColor="#FFFFFF"
                             android:textSize="42sp" />
 
                         <LinearLayout
@@ -520,7 +521,7 @@
                                     android:layout_weight="1"
                                     android:fontFamily="@font/nunito"
                                     android:text="Nombre:"
-                                    android:textColor="#000000"
+                                    android:textColor="#FFFFFF"
                                     android:textSize="16sp" />
 
                                 <TextView
@@ -531,7 +532,7 @@
                                     android:fontFamily="@font/nunito"
                                     android:text="Lorem Ipsum"
                                     android:textAlignment="textStart"
-                                    android:textColor="#000000"
+                                    android:textColor="#FFFFFF"
                                     android:textSize="16sp" />
                             </LinearLayout>
 
@@ -547,7 +548,7 @@
                                     android:layout_weight="1"
                                     android:fontFamily="@font/nunito"
                                     android:text="Materia:"
-                                    android:textColor="#000000"
+                                    android:textColor="#FFFFFF"
                                     android:textSize="16sp" />
 
                                 <TextView
@@ -558,7 +559,7 @@
                                     android:fontFamily="@font/nunito"
                                     android:text="Lorem"
                                     android:textAlignment="textStart"
-                                    android:textColor="#000000"
+                                    android:textColor="#FFFFFF"
                                     android:textSize="16sp" />
                             </LinearLayout>
 
