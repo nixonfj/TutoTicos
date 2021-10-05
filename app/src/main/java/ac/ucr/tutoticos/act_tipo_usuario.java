@@ -1,4 +1,4 @@
-package com.example.tutoticos;
+package ac.ucr.tutoticos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
 
 public class act_tipo_usuario extends AppCompatActivity {
 

@@ -1,8 +1,9 @@
-package com.example.tutoticos;
+package ac.ucr.tutoticos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
 
 public class act_datos_principales extends AppCompatActivity {
 
