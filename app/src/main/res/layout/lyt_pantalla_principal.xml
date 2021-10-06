@@ -94,7 +94,7 @@
                     android:layout_height="200dp"
                     android:layout_marginBottom="20dp"
                     android:scaleType="centerCrop"
-                    tools:srcCompat="@drawable/intellectual_man_reading_book_sitting_in_library_in_front_of_bookshelves_with_cup_of_coffee_on_hands" />
+                    android:src="@drawable/intellectual_man1"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
