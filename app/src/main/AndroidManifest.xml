@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".act_pantalla_principal"
+            android:exported="true" />
+        <activity
             android:name=".act_datos_principales"
             android:exported="true" />
         <activity
@@ -19,10 +22,10 @@
             android:name=".act_registro"
             android:exported="true" />
         <activity
-            android:name=".act_iniciosesion"
+            android:name=".act_perfiltutor"
             android:exported="true" />
         <activity
-            android:name=".act_perfiltutor"
+            android:name=".act_iniciosesion"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
