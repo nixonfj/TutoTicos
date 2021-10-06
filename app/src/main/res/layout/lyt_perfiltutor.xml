@@ -31,21 +31,24 @@
                     android:layout_height="35dp"
                     android:layout_marginRight="250dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/menu_hamburguesa" />
+                    app:srcCompat="@drawable/menu_hamburguesa"
+                    app:tint="@color/white" />
 
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/burbujachat" />
+                    app:srcCompat="@drawable/burbujachat"
+                    app:tint="@color/white" />
 
                 <ImageView
                     android:id="@+id/imageView3"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_weight="1"
-                    app:srcCompat="@drawable/cuenta" />
+                    app:srcCompat="@drawable/cuenta"
+                    app:tint="@color/white"/>
 
             </LinearLayout>
 
@@ -80,15 +83,13 @@
                             android:textColor="#000000"
                             android:textSize="24sp" />
 
-                        <TextView
-                            android:id="@+id/txt_perfiltutor_vermas"
+                        <Button
+                            android:id="@+id/perfilTutor_btn_verMas"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:fontFamily="@font/nunito"
-                            android:text="Ver mas >"
-                            android:textColor="#000000"
-                            android:textSize="16sp" />
+                            android:background="#00000000"
+                            android:text="Ver mas >" />
                     </LinearLayout>
 
                     <ImageView
@@ -120,27 +121,25 @@
                             android:layout_marginBottom="10dp"
                             android:layout_weight="1"
                             android:translationX="40dp"
-                            app:srcCompat="@drawable/cuenta" />
+                            app:srcCompat="@drawable/cuenta"
+                            app:tint="#373737" />
 
-                        <TextView
-                            android:id="@+id/perfiltutor_txt_calificacion"
+                        <RatingBar
+                            android:id="@+id/ratingBar2"
+                            style="@style/Widget.AppCompat.RatingBar.Small"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:translationX="45dp" />
+
+                        <Button
+                            android:id="@+id/perfilTutor_btn_editarPerfil"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:fontFamily="@font/nunito"
-                            android:text="Calificacion"
-                            android:textAlignment="center"
-                            android:textColor="#000000" />
+                            android:background="#00000000"
+                            android:text="Editar Perfil" />
 
-                        <TextView
-                            android:id="@+id/perfiltutor_txt_editarperfil"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/nunito"
-                            android:text="Editar cuenta"
-                            android:textAlignment="center"
-                            android:textColor="#000000" />
                     </LinearLayout>
 
                     <LinearLayout

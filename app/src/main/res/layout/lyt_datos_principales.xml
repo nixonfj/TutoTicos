@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
+        android:outlineAmbientShadowColor="#FFFF"
         tools:srcCompat="@drawable/back_to_school_concept_books_colored_pencils_and_laptop" />
 
     <LinearLayout
@@ -39,19 +40,17 @@
                     android:id="@+id/imageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/cuenta" />
+                    app:srcCompat="@drawable/cuenta"
+                    app:tint="#292929" />
 
                 <Button
-                    android:id="@+id/button"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/datosPrincipales_btn_elegir_foto"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
-                    android:fontFamily="@font/nunito"
-                    android:gravity="center_vertical"
+                    android:background="#1B9AAA"
                     android:text="Elegir Foto"
-                    android:textColor="#fff"
-                    app:cornerRadius="6dp"
-                    app:strokeColor="#1B9AAA" />
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 
@@ -136,8 +135,8 @@
                 <Button
                     android:id="@+id/btnRegistrar"
                     android:layout_width="wrap_content"
-                    android:layout_height="59dp"
-                    android:backgroundTint="#1B9AAA"
+                    android:layout_height="wrap_content"
+                    android:background="#1B9AAA"
                     android:fontFamily="@font/nunito"
                     android:text="Continuar"
                     android:textColor="@color/white"
