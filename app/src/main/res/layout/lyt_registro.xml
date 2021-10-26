@@ -63,7 +63,7 @@
                 app:layout_constraintVertical_bias="0.17000002">
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName"
+                    android:id="@+id/txt_correo_registro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -78,7 +78,7 @@
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName2"
+                    android:id="@+id/txt_usuar_registro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -93,7 +93,7 @@
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName3"
+                    android:id="@+id/txt_contrasena_registro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -108,14 +108,14 @@
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName4"
+                    android:id="@+id/txt_contrasenaConfirm_registro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:fontFamily="@font/nunito"
                     android:hint="Underline color change"
                     android:inputType="textPersonName"
-                    android:text="Confirmar Contraseña"
+                    android:text="Contraseña"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     app:backgroundTint="@color/white"

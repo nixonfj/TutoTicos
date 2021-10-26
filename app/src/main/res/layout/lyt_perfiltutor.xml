@@ -366,7 +366,7 @@
                         android:textSize="24sp" />
 
                     <TextView
-                        android:id="@+id/textView24"
+                        android:id="@+id/perfiltutor_txt_descripcion"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nunito"

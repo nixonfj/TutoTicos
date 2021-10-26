@@ -1,14 +1,18 @@
 package ac.ucr.tutoticos.modelo;
 
-public class Tutor extends Cuenta{
+import android.net.Uri;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-    int idTutor, idEspecialidad, edad;
+public class Tutor extends Cuenta implements Parcelable {
+
+    int idEspecialidad, edad;
     String sexo, descripcion, modalidad;
     double precio, calificacion;
 
-    public Tutor(int idCuenta, String nombreUsuario, String nombreCompleto, String correoUsuario, String contrasenna, int tipoCuenta, int idTutor, int idEspecialidad, int edad, String sexo, String descripcion, String modalidad, double precio, double calificacion) {
-        super(idCuenta, nombreUsuario, nombreCompleto, correoUsuario, contrasenna, tipoCuenta);
-        this.idTutor = idTutor;
+    public Tutor(int idCuenta, String nombreUsuario, String nombreCompleto, String correoUsuario, String contrasenna, int tipoCuenta, Uri imgUser, int idEspecialidad, int edad, String sexo, String descripcion, String modalidad, double precio, double calificacion) {
+        super(idCuenta, nombreUsuario, nombreCompleto, correoUsuario, contrasenna, tipoCuenta/*, imgUser*/);
+
         this.idEspecialidad = idEspecialidad;
         this.edad = edad;
         this.sexo = sexo;
@@ -19,7 +23,6 @@ public class Tutor extends Cuenta{
     }
 
     public Tutor() {
-        this.idTutor = 0;
         this.idEspecialidad = 0;
         this.edad = 0;
         this.sexo = "";
@@ -29,13 +32,34 @@ public class Tutor extends Cuenta{
         this.calificacion = 0;
     }
 
-    public int getIdTutor() {
-        return idTutor;
+    protected Tutor(Parcel in) {
+        idCuenta = in.readInt();
+        nombreUsuario = in.readString();
+        nombreCompleto = in.readString();
+        correoUsuario = in.readString();
+        contrasenna = in.readString();
+        tipoCuenta = in.readInt();
+        idEspecialidad = in.readInt();
+        edad = in.readInt();
+        sexo = in.readString();
+        descripcion = in.readString();
+        modalidad = in.readString();
+        precio = in.readDouble();
+        calificacion = in.readDouble();
+        //imgUser = in.readParcelable(Uri.class.getClassLoader());
     }
 
-    public void setIdTutor(int idTutor) {
-        this.idTutor = idTutor;
-    }
+    public static final Creator<Tutor> CREATOR = new Creator<Tutor>() {
+        @Override
+        public Tutor createFromParcel(Parcel in) {
+            return new Tutor(in);
+        }
+
+        @Override
+        public Tutor[] newArray(int size) {
+            return new Tutor[size];
+        }
+    };
 
     public int getIdEspecialidad() {
         return idEspecialidad;
@@ -96,7 +120,6 @@ public class Tutor extends Cuenta{
     @Override
     public String toString() {
         return "Tutor{" +
-                "idTutor=" + idTutor +
                 ", idEspecialidad=" + idEspecialidad +
                 ", edad=" + edad +
                 ", sexo='" + sexo + '\'' +
@@ -107,5 +130,28 @@ public class Tutor extends Cuenta{
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+
+        parcel.writeInt(idCuenta);
+        parcel.writeString(nombreUsuario);
+        parcel.writeString(nombreCompleto);
+        parcel.writeString(correoUsuario);
+        parcel.writeString(contrasenna);
+        parcel.writeInt(tipoCuenta);
+        parcel.writeInt(idEspecialidad);
+        parcel.writeInt(edad);
+        parcel.writeString(sexo);
+        parcel.writeString(descripcion);
+        parcel.writeString(modalidad);
+        parcel.writeDouble(precio);
+        parcel.writeDouble(calificacion);
+        //parcel.writeParcelable(imgUser,i);
+
+    }
 }//fin de la clase

@@ -37,7 +37,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/img_foto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/cuenta"
@@ -94,7 +94,7 @@
                 app:layout_constraintVertical_bias="0.22000003">
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName"
+                    android:id="@+id/txt_nombre_datos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -109,7 +109,7 @@
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName2"
+                    android:id="@+id/txt_apellidos_datos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"

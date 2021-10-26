@@ -1,19 +1,25 @@
 package ac.ucr.tutoticos.modelo;
 
-public class Cuenta {
+import android.net.Uri;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Cuenta implements Parcelable {
 
     int idCuenta;
     String nombreUsuario, nombreCompleto, correoUsuario, contrasenna;
     int tipoCuenta;
+    //Parcelable imgUser;
 
-    public Cuenta(int idCuenta, String nombreUsuario, String nombreCompleto, String correoUsuario, String contrasenna, int tipoCuenta) {
+    public Cuenta(int idCuenta, String nombreUsuario, String nombreCompleto, String correoUsuario, String contrasenna, int tipoCuenta/*, Uri imgUser*/) {
         this.idCuenta = idCuenta;
         this.nombreUsuario = nombreUsuario;
         this.nombreCompleto = nombreCompleto;
         this.correoUsuario = correoUsuario;
         this.contrasenna = contrasenna;
         this.tipoCuenta = tipoCuenta;
-    }//fin constructor con
+        //this.imgUser = imgUser;
+    }
 
     public Cuenta() {
         this.idCuenta = 0;
@@ -22,7 +28,49 @@ public class Cuenta {
         this.correoUsuario = "";
         this.contrasenna = "";
         this.tipoCuenta = 0;
+        //this.imgUser = null;
     }//fin constructor sin
+
+    protected Cuenta(Parcel in) {
+        idCuenta = in.readInt();
+        nombreUsuario = in.readString();
+        nombreCompleto = in.readString();
+        correoUsuario = in.readString();
+        contrasenna = in.readString();
+        tipoCuenta = in.readInt();
+        //imgUser = in.readParcelable(Uri.class.getClassLoader());
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(idCuenta);
+        dest.writeString(nombreUsuario);
+        dest.writeString(nombreCompleto);
+        dest.writeString(correoUsuario);
+        dest.writeString(contrasenna);
+        dest.writeInt(tipoCuenta);
+        //dest.writeParcelable(imgUser, flags);
+    }
+
+    public static final Creator<Cuenta> CREATOR = new Creator<Cuenta>() {
+        @Override
+        public Cuenta createFromParcel(Parcel in) {
+            return new Cuenta(in);
+        }
+
+        @Override
+        public Cuenta[] newArray(int size) {
+            return new Cuenta[size];
+        }
+    };
+
+    /*public byte[] getImgUser() {
+        return imgUser;
+    }
+
+    public void setImgUser(byte[] imgUser) {
+        this.imgUser = imgUser;
+    }*/
 
     public int getIdCuenta() {
         return idCuenta;
@@ -73,13 +121,8 @@ public class Cuenta {
     }
 
     @Override
-    public String toString() {
-        return "Cuenta{" +
-                "idCuenta=" + idCuenta +
-                ", nombreUsuario='" + nombreUsuario + '\'' +
-                ", nombreCompleto='" + nombreCompleto + '\'' +
-                ", correoUsuario='" + correoUsuario + '\'' +
-                ", contrasenna='" + contrasenna + '\'' +
-                ", tipoCuenta=" + tipoCuenta;
+    public int describeContents() {
+        return 0;
     }
+
 }//fin de la clase
