@@ -62,7 +62,7 @@
                 <LinearLayout
                     android:id="@+id/cont_novedades"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="314dp"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -95,10 +95,10 @@
                     <ImageView
                         android:id="@+id/imageView5"
                         android:layout_width="match_parent"
-                        android:layout_height="200dp"
+                        android:layout_height="205dp"
                         android:layout_marginBottom="20dp"
                         android:scaleType="centerCrop"
-                        tools:srcCompat="@drawable/intellectual_man_reading_book_sitting_in_library_in_front_of_bookshelves_with_cup_of_coffee_on_hands" />
+                        android:src="@drawable/intellectual_man1"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -366,7 +366,7 @@
                         android:textSize="24sp" />
 
                     <TextView
-                        android:id="@+id/textView24"
+                        android:id="@+id/perfiltutor_txt_descripcion"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nunito"
