@@ -3,9 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Dell/Documents/Repositorios/TutoTicos/app/src/main/res/drawable/iconburbujachat.xml" value="0.2703125" />
-        <entry key="..\:/Users/Dell/Documents/Repositorios/TutoTicos/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Dell/Documents/Repositorios/TutoTicos/app/src/main/res/layout/lyt_pantallaprincipal.xml" value="0.264" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/menu_desplegable/app/src/main/res/layout/activity_lyt_menu_hamburguesa.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/menu_desplegable/app/src/main/res/layout/app_bar_lyt_menu_hamburguesa.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/menu_desplegable/app/src/main/res/layout/content_lyt_menu_hamburguesa.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/menu_desplegable/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/menu_desplegable/app/src/main/res/menu/activity_lyt_menu_hamburguesa_drawer.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/menu_desplegable/app/src/main/res/menu/lyt_menu_hamburguesa.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
@@ -14,12 +17,5 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.264" />
-      </ProjectState>
-    </option>
   </component>
 </project>

@@ -1,4 +1,4 @@
-package ac.ucr.tutoticos;
+package com.example.menu_desplegable;
 
 import org.junit.Test;
 

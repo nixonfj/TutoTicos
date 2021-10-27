@@ -1,4 +1,4 @@
-package ac.ucr.tutoticos;
+package com.example.menu_desplegable;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("ac.ucr.tutoticos", appContext.getPackageName());
+        assertEquals("com.example.menu_desplegable", appContext.getPackageName());
     }
 }
