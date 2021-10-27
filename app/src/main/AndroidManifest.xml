@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".act_materia"
+            android:exported="true" />
+        <activity
+            android:name=".act_horario"
+            android:exported="true" />
+        <activity
+            android:name=".act_Info_tutor"
+            android:exported="true" />
+        <activity
             android:name=".act_registroTutor"
             android:exported="true" />
         <activity
