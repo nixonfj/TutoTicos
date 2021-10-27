@@ -46,6 +46,7 @@ public class act_registroTutor extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_registro_tutor);
 
+        //deleteDatabase(TUTOR_BD);
         abrirDBTutor();
 
         addTutor = getIntent().getParcelableExtra("tutor");
@@ -71,15 +72,21 @@ public class act_registroTutor extends AppCompatActivity {
                     startActivity(intent);
                 }else{
                     Toast.makeText(getApplicationContext(),"Usuario o contraseña incorracta",Toast.LENGTH_SHORT).show();
+                    Intent intent= new Intent (act_registroTutor.this, act_iniciosesion.class);
+                    startActivity(intent);
                 }
 
             }else{
                 Toast.makeText(getApplicationContext(),"usuario no encontrado",Toast.LENGTH_SHORT).show();
-                /*Intent intent = new Intent(act_registroTutor.this, act_registroEstudiante.class);
-                intent.putExtra("login", loginCuenta);
-                startActivity(intent);*/
+                Intent intent= new Intent (act_registroTutor.this, act_iniciosesion.class);
+                startActivity(intent);
             }
 
+        }
+        else {
+            Toast.makeText(getApplicationContext(),"usuario no encontrado",Toast.LENGTH_SHORT).show();
+            Intent intent= new Intent (act_registroTutor.this, act_iniciosesion.class);
+            startActivity(intent);
         }
 
     }//fin del onCreate
@@ -175,10 +182,17 @@ public class act_registroTutor extends AppCompatActivity {
     }//fin del metodo
 
     public Tutor getCuentaLogin(ArrayList<Tutor> list, String user){
-        for (int i=0; i <= list.size(); i++){
-            if(list.get(i).getNombreUsuario().equalsIgnoreCase(user))
-            {
-                return list.get(i);
+        if(list.size() > 0)
+        {
+            for (int i=0; i <= list.size(); i++){
+                if(list.get(i).getNombreUsuario().equalsIgnoreCase(user))
+                {
+                    return list.get(i);
+                }
+                else
+                {
+                    return null;
+                }
             }
         }
     return null;

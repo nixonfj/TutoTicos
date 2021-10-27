@@ -115,7 +115,7 @@
                     android:fontFamily="@font/nunito"
                     android:hint="Underline color change"
                     android:inputType="textPersonName"
-                    android:text="Contraseña"
+                    android:text="Confirmar Contraseña"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     app:backgroundTint="@color/white"

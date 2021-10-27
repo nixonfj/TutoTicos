@@ -12,10 +12,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
+import ac.ucr.tutoticos.modelo.Tutor;
+
 public class act_horario extends AppCompatActivity {
 
-    private Button btnNextMateria, btnAddHorario;
+    private Button btn_continuar, btnAddHorario;
     private LinearLayout lytHorario;
+
+    Tutor tutor = new Tutor();
+    Tutor tutoR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +28,32 @@ public class act_horario extends AppCompatActivity {
         setContentView(R.layout.lyt_horario);
 
         lytHorario = findViewById(R.id.lytMateria);
-        btnNextMateria = findViewById(R.id.btnNextMateria);
+        btn_continuar = findViewById(R.id.btn_continuar_horario);
         btnAddHorario = findViewById(R.id.btnAddMateria);
 
-        btnNextMateria.setOnClickListener(new View.OnClickListener() {
+        tutoR = getIntent().getParcelableExtra("tutor");
+
+        btn_continuar.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent (act_horario.this, act_materia.class);
+
+                tutor.setIdCuenta(tutoR.getIdCuenta());
+                tutor.setNombreUsuario(tutoR.getNombreUsuario());
+                tutor.setNombreCompleto(tutoR.getNombreCompleto());
+                tutor.setCorreoUsuario(tutoR.getCorreoUsuario());
+                tutor.setContrasenna(tutoR.getContrasenna());
+                tutor.setTipoCuenta(tutoR.getTipoCuenta());
+                tutor.setIdEspecialidad(tutoR.getIdEspecialidad());
+                tutor.setEdad(tutoR.getEdad());
+                tutor.setSexo(tutoR.getSexo());
+                tutor.setDescripcion(tutoR.getDescripcion());
+                tutor.setModalidad(tutoR.getModalidad());
+                tutor.setPrecio(tutoR.getPrecio());
+                tutor.setCalificacion(tutoR.getCalificacion());
+
+                Intent intent= new Intent (act_horario.this, act_registroTutor.class);
+                intent.putExtra("tutor", tutor);
                 startActivity(intent);
             }
         });

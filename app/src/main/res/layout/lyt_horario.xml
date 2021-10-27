@@ -56,9 +56,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-                app:layout_constraintVertical_bias="0.110000014">
+                app:layout_constraintVertical_bias="0.110000014"
+                tools:layout_editor_absoluteX="100dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -123,6 +126,7 @@
                 android:drawableLeft="@drawable/ic_add"
                 android:fontFamily="@font/nunito"
                 android:text="agregar nuevo"
+                android:textColor="#FBF8F8"
                 android:textSize="14dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
@@ -130,7 +134,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/lytMateria" />
 
             <Button
-                android:id="@+id/btnNextMateria"
+                android:id="@+id/btn_continuar_horario"
                 android:layout_width="wrap_content"
                 android:layout_height="59dp"
                 android:layout_marginTop="56dp"

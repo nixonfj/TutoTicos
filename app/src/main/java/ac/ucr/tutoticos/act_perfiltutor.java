@@ -13,7 +13,7 @@ import ac.ucr.tutoticos.modelo.Tutor;
 public class act_perfiltutor extends AppCompatActivity {
 
     Button btn_editar, btn_verMas;
-    TextView txt_nombre, txt_apellidos, txt_descripcion;
+    TextView txt_nombre, txt_apellidos, txt_descripcion, txt_precio;
 
     Tutor tutor;
 
@@ -28,6 +28,7 @@ public class act_perfiltutor extends AppCompatActivity {
         txt_nombre = findViewById(R.id.perfiltutor_txt_nombre);
         txt_apellidos = findViewById(R.id.perfiltutor_txt_apellido);
         txt_descripcion = findViewById(R.id.perfiltutor_txt_descripcion);
+        txt_precio = findViewById(R.id.perfiltutor_txt_precio);
 
         tutor = getIntent().getParcelableExtra("tutor");
 
@@ -36,6 +37,7 @@ public class act_perfiltutor extends AppCompatActivity {
             txt_nombre.setText(tutor.getNombreCompleto());
             txt_apellidos.setText(tutor.getNombreCompleto());
             txt_descripcion.setText(tutor.getDescripcion());
+            txt_precio.setText(""+tutor.getPrecio());
         }
 
         btn_editar.setOnClickListener(new View.OnClickListener() {

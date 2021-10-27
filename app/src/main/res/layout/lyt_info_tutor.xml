@@ -69,10 +69,11 @@
                     android:layout_marginBottom="20dp"
                     android:popupBackground="@color/principal"
                     android:spinnerMode="dropdown"
-                    app:backgroundTint="@color/white" />
+                    app:backgroundTint="@color/white"
+                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
                 <EditText
-                    android:id="@+id/editTextNumber"
+                    android:id="@+id/txt_edad_infoT"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -82,10 +83,11 @@
                     android:text="Edad"
                     android:textAlignment="center"
                     android:textColor="@color/white"
-                    app:backgroundTint="@color/white" />
+                    app:backgroundTint="@color/white"
+                    tools:ignore="TouchTargetSizeCheck" />
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName3"
+                    android:id="@+id/txt_descripcion_infoT"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -96,7 +98,7 @@
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     app:backgroundTint="@color/white"
-                    />
+                    tools:ignore="TouchTargetSizeCheck" />
 
             </LinearLayout>
 

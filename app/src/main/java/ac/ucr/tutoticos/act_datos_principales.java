@@ -63,7 +63,7 @@ public class act_datos_principales extends AppCompatActivity {
                 }
                 else
                 {
-                    String nombreC = txt_nombre.getText().toString() + txt_apellidos.getText().toString();
+                    String nombreC = ""+txt_nombre.getText().toString()+ " " + txt_apellidos.getText().toString();
 
                     Cuenta cuenta = new Cuenta(0, cuentaR.getNombreUsuario(), nombreC, cuentaR.getCorreoUsuario(), cuentaR.getContrasenna(), cuentaR.getTipoCuenta()/*direccionFoto*/);
 

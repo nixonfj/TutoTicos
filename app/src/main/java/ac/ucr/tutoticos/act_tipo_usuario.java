@@ -59,7 +59,7 @@ public class act_tipo_usuario extends AppCompatActivity {
                     tutor.setPrecio(0);
                     tutor.setCalificacion(5);
 
-                    Intent intent = new Intent(act_tipo_usuario.this, act_registroTutor.class);
+                    Intent intent = new Intent(act_tipo_usuario.this, act_Info_tutor.class);
                     intent.putExtra("tutor", tutor);
                     startActivity(intent);
                 }
