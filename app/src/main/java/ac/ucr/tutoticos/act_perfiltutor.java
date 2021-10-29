@@ -34,8 +34,8 @@ public class act_perfiltutor extends AppCompatActivity {
 
         //Settear espacios
         if(tutor != null){
-            txt_nombre.setText(tutor.getNombreCompleto());
-            txt_apellidos.setText(tutor.getNombreCompleto());
+            txt_nombre.setText(tutor.getNombre());
+            txt_apellidos.setText(tutor.getApellido());
             txt_descripcion.setText(tutor.getDescripcion());
             txt_precio.setText(""+tutor.getPrecio());
         }

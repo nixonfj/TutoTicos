@@ -54,11 +54,14 @@ public class act_registro extends AppCompatActivity {
 
                     if(contrasena.equalsIgnoreCase(contrasenaC)){
 
-                        cuenta.setCorreoUsuario(correo);
+                        cuenta.setIdCuenta(0);
                         cuenta.setNombreUsuario(user);
+                        cuenta.setNombre("");
+                        cuenta.setApellido("");
+                        cuenta.setCorreoUsuario(correo);
                         cuenta.setContrasenna(contrasena);
-                        cuenta.setNombreCompleto("");
-                        cuenta.setTipoCuenta(-1);
+                        cuenta.setTipoCuenta(3);
+                        //cuenta.setImgUser(null);
 
                         Intent intent = new Intent(act_registro.this, act_datos_principales.class);
                         intent.putExtra("cuenta", cuenta);

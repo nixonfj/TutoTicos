@@ -40,7 +40,8 @@ public class act_horario extends AppCompatActivity {
 
                 tutor.setIdCuenta(tutoR.getIdCuenta());
                 tutor.setNombreUsuario(tutoR.getNombreUsuario());
-                tutor.setNombreCompleto(tutoR.getNombreCompleto());
+                tutor.setNombre(tutoR.getNombre());
+                tutor.setApellido(tutoR.getApellido());
                 tutor.setCorreoUsuario(tutoR.getCorreoUsuario());
                 tutor.setContrasenna(tutoR.getContrasenna());
                 tutor.setTipoCuenta(tutoR.getTipoCuenta());
@@ -51,6 +52,7 @@ public class act_horario extends AppCompatActivity {
                 tutor.setModalidad(tutoR.getModalidad());
                 tutor.setPrecio(tutoR.getPrecio());
                 tutor.setCalificacion(tutoR.getCalificacion());
+                //tutor.setImgUser(tutoR.getImgUser());
 
                 Intent intent= new Intent (act_horario.this, act_registroTutor.class);
                 intent.putExtra("tutor", tutor);

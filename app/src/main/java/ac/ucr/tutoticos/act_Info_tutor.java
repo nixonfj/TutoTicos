@@ -18,6 +18,7 @@ public class act_Info_tutor extends AppCompatActivity {
     private Spinner sp_sexo;
     private Button continuar;
     EditText txt_edad, txt_descripcion;
+
     Tutor tutor = new Tutor();
     Tutor tutoR;
 
@@ -54,19 +55,25 @@ public class act_Info_tutor extends AppCompatActivity {
                         }
                         else
                         {
+
+                            String sexo = sp_sexo.getSelectedItem().toString();
+                            String descripcion = txt_descripcion.getText().toString();
+
                             tutor.setIdCuenta(tutoR.getIdCuenta());
                             tutor.setNombreUsuario(tutoR.getNombreUsuario());
-                            tutor.setNombreCompleto(tutoR.getNombreCompleto());
+                            tutor.setNombre(tutoR.getNombre());
+                            tutor.setApellido(tutoR.getApellido());
                             tutor.setCorreoUsuario(tutoR.getCorreoUsuario());
                             tutor.setContrasenna(tutoR.getContrasenna());
                             tutor.setTipoCuenta(tutoR.getTipoCuenta());
                             tutor.setIdEspecialidad(tutoR.getIdEspecialidad());
                             tutor.setEdad(Integer.parseInt(txt_edad.getText().toString()));
-                            tutor.setSexo(sp_sexo.getSelectedItem().toString());
-                            tutor.setDescripcion(txt_descripcion.getText().toString());
-                            tutor.setModalidad(tutoR.getModalidad());
-                            tutor.setPrecio(tutoR.getPrecio());
+                            tutor.setSexo(sexo);
+                            tutor.setDescripcion(descripcion);
+                            tutor.setModalidad("modalidad");
+                            tutor.setPrecio(0);
                             tutor.setCalificacion(tutoR.getCalificacion());
+                            //tutor.setImgUser(tutoR.getImgUser());
 
                             Intent intent = new Intent(act_Info_tutor.this, act_materia.class);
                             intent.putExtra("tutor", tutor);

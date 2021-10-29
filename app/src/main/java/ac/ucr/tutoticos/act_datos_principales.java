@@ -3,9 +3,12 @@ package ac.ucr.tutoticos;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -23,7 +26,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import ac.ucr.tutoticos.modelo.Cuenta;
-import ac.ucr.tutoticos.modelo.Tutor;
 
 public class act_datos_principales extends AppCompatActivity {
 
@@ -34,6 +36,9 @@ public class act_datos_principales extends AppCompatActivity {
     Cuenta cuentaR;
 
     Uri direccionFoto;
+
+    private act_registroTutor sqliteDBHandler;
+    private SQLiteDatabase sqLiteDatabase;
 
     private final int galeria = 1;
     private final int camara = 2;
@@ -63,9 +68,18 @@ public class act_datos_principales extends AppCompatActivity {
                 }
                 else
                 {
-                    String nombreC = ""+txt_nombre.getText().toString()+ " " + txt_apellidos.getText().toString();
 
-                    Cuenta cuenta = new Cuenta(0, cuentaR.getNombreUsuario(), nombreC, cuentaR.getCorreoUsuario(), cuentaR.getContrasenna(), cuentaR.getTipoCuenta()/*direccionFoto*/);
+                    //------------------------------------------------------------------------------
+
+                    /*String stringFilePath = Environment.getExternalStorageDirectory().getPath()+"/Download/"+txt_nombre.getText().toString()+".jpeg";
+                    Bitmap bitmap = BitmapFactory.decodeFile(stringFilePath);
+                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArrayOutputStream);
+                    byte[] bytesImage = byteArrayOutputStream.toByteArray();*/
+
+                    String nombre = txt_nombre.getText().toString();
+                    String apellido = txt_apellidos.getText().toString();
+                    Cuenta cuenta = new Cuenta(0, cuentaR.getNombreUsuario(), nombre, apellido, cuentaR.getCorreoUsuario(), cuentaR.getContrasenna(), cuentaR.getTipoCuenta());
 
                     Intent intent = new Intent(act_datos_principales.this, act_tipo_usuario.class);
                     intent.putExtra("cuenta", cuenta);
@@ -77,7 +91,6 @@ public class act_datos_principales extends AppCompatActivity {
         btn_foto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(getApplicationContext(), "Tab", Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(act_datos_principales.this);
                 alertDialog.setTitle("Selecciones la Fotografía");
                 alertDialog.setMessage("¿Qué desea utilizar?");
