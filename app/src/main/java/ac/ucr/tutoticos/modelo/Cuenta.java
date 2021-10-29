@@ -9,7 +9,7 @@ public class Cuenta implements Parcelable {
     int idCuenta;
     String nombreUsuario, nombre, apellido, correoUsuario, contrasenna;
     int tipoCuenta;
-    Bitmap imgUser;
+    //Bitmap imgUser;
 
     public Cuenta(int idCuenta, String nombreUsuario, String nombre, String apellido, String correoUsuario, String contrasenna, int tipoCuenta/*, Bitmap imgUser*/) {
         this.idCuenta = idCuenta;

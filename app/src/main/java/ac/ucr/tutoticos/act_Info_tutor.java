@@ -56,9 +56,6 @@ public class act_Info_tutor extends AppCompatActivity {
                         else
                         {
 
-                            String sexo = sp_sexo.getSelectedItem().toString();
-                            String descripcion = txt_descripcion.getText().toString();
-
                             tutor.setIdCuenta(tutoR.getIdCuenta());
                             tutor.setNombreUsuario(tutoR.getNombreUsuario());
                             tutor.setNombre(tutoR.getNombre());
@@ -67,12 +64,13 @@ public class act_Info_tutor extends AppCompatActivity {
                             tutor.setContrasenna(tutoR.getContrasenna());
                             tutor.setTipoCuenta(tutoR.getTipoCuenta());
                             tutor.setIdEspecialidad(tutoR.getIdEspecialidad());
+
                             tutor.setEdad(Integer.parseInt(txt_edad.getText().toString()));
-                            tutor.setSexo(sexo);
-                            tutor.setDescripcion(descripcion);
-                            tutor.setModalidad("modalidad");
-                            tutor.setPrecio(0);
-                            tutor.setCalificacion(tutoR.getCalificacion());
+                            tutor.setSexo(sp_sexo.getSelectedItem().toString());
+                            tutor.setDescripcion(txt_descripcion.getText().toString());
+                            tutor.setModalidad("Modalidad");
+                            tutor.setPrecio(0.0);
+                            tutor.setCalificacion(0.0);
                             //tutor.setImgUser(tutoR.getImgUser());
 
                             Intent intent = new Intent(act_Info_tutor.this, act_materia.class);

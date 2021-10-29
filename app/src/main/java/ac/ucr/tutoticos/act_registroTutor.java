@@ -89,11 +89,6 @@ public class act_registroTutor extends AppCompatActivity {
             }
 
         }
-        else {
-            Toast.makeText(getApplicationContext(),"usuario no encontrado",Toast.LENGTH_SHORT).show();
-            Intent intent= new Intent (act_registroTutor.this, act_iniciosesion.class);
-            startActivity(intent);
-        }
 
     }//fin del onCreate
 

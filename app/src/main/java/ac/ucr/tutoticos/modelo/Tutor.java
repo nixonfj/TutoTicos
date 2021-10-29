@@ -32,8 +32,14 @@ public class Tutor extends Cuenta implements Parcelable {
         this.precio = 0;
         this.calificacion = 0;
     }
-
-    protected Tutor(Parcel in) {
+    protected Tutor(Parcel in){
+        idCuenta = in.readInt();
+        nombreUsuario = in.readString();
+        nombre = in.readString();
+        apellido = in.readString();
+        correoUsuario = in.readString();
+        contrasenna = in.readString();
+        tipoCuenta = in.readInt();
         idEspecialidad = in.readInt();
         edad = in.readInt();
         sexo = in.readString();
@@ -41,25 +47,7 @@ public class Tutor extends Cuenta implements Parcelable {
         modalidad = in.readString();
         precio = in.readDouble();
         calificacion = in.readDouble();
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(idCuenta);
-        parcel.writeString(nombreUsuario);
-        parcel.writeString(nombre);
-        parcel.writeString(apellido);
-        parcel.writeString(correoUsuario);
-        parcel.writeString(contrasenna);
-        parcel.writeInt(tipoCuenta);
-        //parcel.writeParcelable(imgUser, i);
-        parcel.writeInt(idEspecialidad);
-        parcel.writeInt(edad);
-        parcel.writeString(sexo);
-        parcel.writeString(descripcion);
-        parcel.writeString(modalidad);
-        parcel.writeDouble(precio);
-        parcel.writeDouble(calificacion);
+        //imgUser = in.readParcelable(Uri.class.getClassLoader());
     }
 
     @Override
@@ -133,6 +121,27 @@ public class Tutor extends Cuenta implements Parcelable {
 
     public void setCalificacion(double calificacion) {
         this.calificacion = calificacion;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+
+        parcel.writeInt(idCuenta);
+        parcel.writeString(nombreUsuario);
+        parcel.writeString(nombre);
+        parcel.writeString(apellido);
+        parcel.writeString(correoUsuario);
+        parcel.writeString(contrasenna);
+        parcel.writeInt(tipoCuenta);
+        parcel.writeInt(idEspecialidad);
+        parcel.writeInt(edad);
+        parcel.writeString(sexo);
+        parcel.writeString(descripcion);
+        parcel.writeString(modalidad);
+        parcel.writeDouble(precio);
+        parcel.writeDouble(calificacion);
+        //parcel.writeParcelable(imgUser,i);
+
     }
 
 }//fin de la clase
