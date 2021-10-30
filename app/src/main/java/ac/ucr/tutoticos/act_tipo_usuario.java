@@ -41,13 +41,15 @@ public class act_tipo_usuario extends AppCompatActivity {
                 else
                 {
                     String nombreU = cuenta.getNombreUsuario();
-                    String nombreC = cuenta.getNombreCompleto();
+                    String nombre = cuenta.getNombre();
+                    String apellido = cuenta.getApellido();
                     String correo = cuenta.getCorreoUsuario();
                     String pass = cuenta.getContrasenna();
 
                     tutor.setIdCuenta(0);
                     tutor.setNombreUsuario(nombreU);
-                    tutor.setNombreCompleto(nombreC);
+                    tutor.setNombre(nombre);
+                    tutor.setApellido(apellido);
                     tutor.setCorreoUsuario(correo);
                     tutor.setContrasenna(pass);
                     tutor.setTipoCuenta(0);
@@ -58,8 +60,9 @@ public class act_tipo_usuario extends AppCompatActivity {
                     tutor.setModalidad("Virtual");
                     tutor.setPrecio(0);
                     tutor.setCalificacion(5);
+                    //tutor.setImgUser(null);
 
-                    Intent intent = new Intent(act_tipo_usuario.this, act_registroTutor.class);
+                    Intent intent = new Intent(act_tipo_usuario.this, act_Info_tutor.class);
                     intent.putExtra("tutor", tutor);
                     startActivity(intent);
                 }

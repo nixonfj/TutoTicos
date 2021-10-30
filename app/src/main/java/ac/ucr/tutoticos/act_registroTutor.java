@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOutOfMemoryException;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -28,7 +30,8 @@ public class act_registroTutor extends AppCompatActivity {
     public  static  final  String tbTutor = "CREATE TABLE IF NOT EXISTS" +
             " tutor(id INTEGER PRIMARY KEY AUTOINCREMENT,"+
             "nombreUsuario String NOT NULL," +
-            "nombreCompleto String NOT NULL," +
+            "nombre String NOT NULL," +
+            "apellido String NOT NULL," +
             "correoUsuario String NOT NULL," +
             "contrasena String NOT NULL," +
             "tipoCuenta INTEGER NOT NULL," +
@@ -38,14 +41,15 @@ public class act_registroTutor extends AppCompatActivity {
             "precio DOUBLE NOT NULL," +
             "descripcion String NOT NULL," +
             "calidicacion DOUBLE NOT NULL," +
-            "modalidad String NOT NULL/*"+
-            "picture BLOB*/);";
+            "modalidad String NOT NULL/*,"+
+            "picture Bitmap*/);";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_registro_tutor);
 
+        //deleteDatabase(TUTOR_BD);
         abrirDBTutor();
 
         addTutor = getIntent().getParcelableExtra("tutor");
@@ -59,6 +63,9 @@ public class act_registroTutor extends AppCompatActivity {
                 Tutor t = getTutor(getListaTutores(), addTutor.getNombreUsuario());
                 intent.putExtra("tutor", t);
                 startActivity(intent);
+            }else
+            {
+                Toast.makeText(getApplicationContext(),"Error al registrar Usuario",Toast.LENGTH_LONG).show();
             }
         }
 
@@ -71,13 +78,14 @@ public class act_registroTutor extends AppCompatActivity {
                     startActivity(intent);
                 }else{
                     Toast.makeText(getApplicationContext(),"Usuario o contraseña incorracta",Toast.LENGTH_SHORT).show();
+                    Intent intent= new Intent (act_registroTutor.this, act_iniciosesion.class);
+                    startActivity(intent);
                 }
 
             }else{
                 Toast.makeText(getApplicationContext(),"usuario no encontrado",Toast.LENGTH_SHORT).show();
-                /*Intent intent = new Intent(act_registroTutor.this, act_registroEstudiante.class);
-                intent.putExtra("login", loginCuenta);
-                startActivity(intent);*/
+                Intent intent= new Intent (act_registroTutor.this, act_iniciosesion.class);
+                startActivity(intent);
             }
 
         }
@@ -89,7 +97,8 @@ public class act_registroTutor extends AppCompatActivity {
         ContentValues content = new ContentValues();
 
         content.put("nombreUsuario", t.getNombreUsuario());
-        content.put("nombreCompleto", t.getNombreCompleto());
+        content.put("nombre", t.getNombre());
+        content.put("apellido", t.getApellido());
         content.put("correoUsuario", t.getCorreoUsuario());
         content.put("contrasena", t.getContrasenna());
         content.put("tipoCuenta", t.getTipoCuenta());
@@ -100,7 +109,7 @@ public class act_registroTutor extends AppCompatActivity {
         content.put("descripcion", t.getDescripcion());
         content.put("calidicacion", t.getCalificacion());
         content.put("modalidad", t.getModalidad());
-        //content.put("picture", t.getImgUser());
+        //content.put("picture", String.valueOf(t.getImgUser()));
 
         return db.insert(TABLA_TUTOR, null,content) > 0;
 
@@ -111,7 +120,8 @@ public class act_registroTutor extends AppCompatActivity {
         ContentValues content = new ContentValues();
 
         content.put("nombreUsuario", t.getNombreUsuario());
-        content.put("nombreCompleto", t.getNombreCompleto());
+        content.put("nombre", t.getNombre());
+        content.put("apellido", t.getApellido());
         content.put("correoUsuario", t.getCorreoUsuario());
         content.put("contrasena", t.getContrasenna());
         content.put("tipoCuenta", t.getTipoCuenta());
@@ -122,14 +132,14 @@ public class act_registroTutor extends AppCompatActivity {
         content.put("descripcion", t.getDescripcion());
         content.put("calidicacion", t.getCalificacion());
         content.put("modalidad", t.getModalidad());
-        //content.put("picture", t.getImgUser());
+        //content.put("picture", String.valueOf(t.getImgUser()));
 
         return db.update(TABLA_TUTOR, content, "id="+t.getIdCuenta(), null) > 0;
 
     }//fin del metodo
 
     private ArrayList<Tutor> getListaTutores(){
-        Cursor cursor = db.query(TABLA_TUTOR, new String[]{"id", "nombreUsuario", "nombreCompleto", "correoUsuario", "contrasena", "tipoCuenta", "idEspecialidad", "edad", "sexo", "precio", "descripcion", "calidicacion", "modalidad"},
+        Cursor cursor = db.query(TABLA_TUTOR, new String[]{"id", "nombreUsuario", "nombre","apellido", "correoUsuario", "contrasena", "tipoCuenta", "idEspecialidad", "edad", "sexo", "precio", "descripcion", "calidicacion", "modalidad"/*, "picture"*/},
                 null, null, null, null, "id desc");
 
         cursor.moveToFirst();
@@ -141,18 +151,22 @@ public class act_registroTutor extends AppCompatActivity {
 
             tuto.setIdCuenta(cursor.getInt(0));
             tuto.setNombreUsuario(cursor.getString(1));
-            tuto.setNombreCompleto(cursor.getString(2));
-            tuto.setCorreoUsuario(cursor.getString(3));
-            tuto.setContrasenna(cursor.getString(4));
-            tuto.setTipoCuenta(cursor.getInt(5));
-            tuto.setIdEspecialidad(cursor.getInt(6));
-            tuto.setEdad(cursor.getInt(7));
-            tuto.setSexo(cursor.getString(8));
-            tuto.setPrecio(cursor.getDouble(9));
-            tuto.setDescripcion(cursor.getString(10));
-            tuto.setCalificacion(cursor.getDouble(11));
-            tuto.setModalidad(cursor.getString(12));
-            //tuto.setImgUser(cursor.getBlob(13));
+            tuto.setNombre(cursor.getString(2));
+            tuto.setApellido(cursor.getString(3));
+            tuto.setCorreoUsuario(cursor.getString(4));
+            tuto.setContrasenna(cursor.getString(5));
+            tuto.setTipoCuenta(cursor.getInt(6));
+            tuto.setIdEspecialidad(cursor.getInt(7));
+            tuto.setEdad(cursor.getInt(8));
+            tuto.setSexo(cursor.getString(9));
+            tuto.setPrecio(cursor.getDouble(10));
+            tuto.setDescripcion(cursor.getString(11));
+            tuto.setCalificacion(cursor.getDouble(12));
+            tuto.setModalidad(cursor.getString(13));
+
+            /*byte[] image = cursor.getBlob(14);
+            Bitmap bitmapImage = BitmapFactory.decodeByteArray(image, 0, image.length);
+            tuto.setImgUser(bitmapImage);*/
 
             listaT.add(tuto);
             cursor.moveToNext();
@@ -175,10 +189,17 @@ public class act_registroTutor extends AppCompatActivity {
     }//fin del metodo
 
     public Tutor getCuentaLogin(ArrayList<Tutor> list, String user){
-        for (int i=0; i <= list.size(); i++){
-            if(list.get(i).getNombreUsuario().equalsIgnoreCase(user))
-            {
-                return list.get(i);
+        if(list.size() > 0)
+        {
+            for (int i=0; i <= list.size(); i++){
+                if(list.get(i).getNombreUsuario().equalsIgnoreCase(user))
+                {
+                    return list.get(i);
+                }
+                else
+                {
+                    return null;
+                }
             }
         }
     return null;

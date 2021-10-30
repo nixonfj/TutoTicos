@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".act_registro">
+    tools:context=".act_Info_tutor">
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:src="@drawable/background_imagen"
         android:scaleType="centerCrop"
-        android:src="@drawable/background_imagen"/>
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,14 +38,14 @@
                     android:layout_height="106dp"
 
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/logo_oscuro"/>
+                    android:src="@drawable/logo_oscuro" />
 
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/comfortaa"
-                    android:text="Crea tu cuenta"
+                    android:text="Agrega tus datos"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="24sp" />
@@ -62,64 +62,44 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout"
                 app:layout_constraintVertical_bias="0.17000002">
 
+                <Spinner
+                    android:id="@+id/spSexo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:popupBackground="@color/principal"
+                    android:spinnerMode="dropdown"
+                    app:backgroundTint="@color/white"
+                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
                 <EditText
-                    android:id="@+id/txt_correo_registro"
+                    android:id="@+id/txt_edad_infoT"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:ems="10"
                     android:fontFamily="@font/nunito"
-                    android:hint="Underline color change"
-                    android:inputType="textPersonName"
-                    android:text="Correo electrónico"
+                    android:inputType="number"
+                    android:text="Edad"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     app:backgroundTint="@color/white"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <EditText
-                    android:id="@+id/txt_usuar_registro"
+                    android:id="@+id/txt_descripcion_infoT"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:ems="10"
                     android:fontFamily="@font/nunito"
-                    android:hint="Underline color change"
                     android:inputType="textPersonName"
-                    android:text="Usuario"
+                    android:text="Sobre mi"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     app:backgroundTint="@color/white"
                     tools:ignore="TouchTargetSizeCheck" />
 
-                <EditText
-                    android:id="@+id/txt_contrasena_registro"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:ems="10"
-                    android:fontFamily="@font/nunito"
-                    android:hint="Underline color change"
-                    android:inputType="textPersonName"
-                    android:text="Contraseña"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    app:backgroundTint="@color/white"
-                    tools:ignore="TouchTargetSizeCheck" />
-
-                <EditText
-                    android:id="@+id/txt_contrasenaConfirm_registro"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:fontFamily="@font/nunito"
-                    android:hint="Underline color change"
-                    android:inputType="textPersonName"
-                    android:text="Confirmar Contraseña"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    app:backgroundTint="@color/white"
-                    tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
 
             <LinearLayout
@@ -131,23 +111,23 @@
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
                 <Button
-                    android:id="@+id/registro_btn_registrar"
+                    android:id="@+id/btnNextHorario"
                     android:layout_width="wrap_content"
                     android:layout_height="59dp"
-                    android:backgroundTint="#1B9AAA"
+                    android:backgroundTint="@color/principal"
                     android:fontFamily="@font/nunito"
-                    android:text="Registrarse"
+                    android:text="continuar"
                     android:textColor="@color/white"
                     app:cornerRadius="8dp" />
 
                 <Button
-                    android:id="@+id/registro_btn_ingresar"
+                    android:id="@+id/button2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="?android:attr/selectableItemBackground"
                     android:fontFamily="@font/nunito"
                     android:textColor="@color/white"
-                    android:text="Ingresar" />
+                    android:text="Volver" />
 
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
