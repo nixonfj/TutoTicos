@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.avancepantallas">
 
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"></uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,12 +13,42 @@
         android:theme="@style/Theme.AvancePantallas">
         <activity
             android:name=".act_materia"
+<<<<<<< Updated upstream
             android:exported="true" />
         <activity
             android:name=".act_horario"
             android:exported="true" />
         <activity
             android:name=".act_info_tutor"
+=======
+            android:exported="true" />
+        <activity
+            android:name=".act_horario"
+            android:exported="true" />
+        <activity
+            android:name=".act_Info_tutor"
+            android:exported="true" />
+        <activity
+            android:name=".act_registroTutor"
+            android:exported="true" />
+        <activity
+            android:name=".act_pantalla_principal"
+            android:exported="true" />
+        <activity
+            android:name=".act_datos_principales"
+            android:exported="true" />
+        <activity
+            android:name=".act_tipo_usuario"
+            android:exported="true" />
+        <activity
+            android:name=".act_registro"
+            android:exported="true" />
+        <activity
+            android:name=".act_perfiltutor"
+            android:exported="true" />
+        <activity
+            android:name=".act_iniciosesion"
+>>>>>>> Stashed changes
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

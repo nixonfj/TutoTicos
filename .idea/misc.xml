@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< Updated upstream
         <entry key="..\:/Users/angel/AndroidStudioProjects/avancePantallas/app/src/main/res/drawable/boton_agregar.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/avancePantallas/app/src/main/res/drawable/boton_borde_blanco.xml" value="0.19583333333333333" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/avancePantallas/app/src/main/res/drawable/btn_perso_horario.xml" value="0.19583333333333333" />
@@ -15,6 +16,31 @@
         <entry key="..\:/Users/angel/AndroidStudioProjects/avancePantallas/app/src/main/res/layout/lyt_materia.xml" value="0.4025670945157526" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/avancePantallas/app/src/main/res/layout/lyt_materia_perso.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/angel/AndroidStudioProjects/avancePantallas/app/src/main/res/layout/spinner_item_sexo.xml" value="0.1" />
+=======
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/drawable/btn_perso_horario.xml" value="0.2703125" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/horario_persona.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_comentarios_tutor.xml" value="0.25" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_datos_principales.xml" value="0.264" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_horario.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_info_tutor.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_iniciosesion.xml" value="0.23777173913043478" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_materia.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_pantalla_principal.xml" value="0.25" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_pantallaprincipal.xml" value="0.24139492753623187" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_perfiltutor.xml" value="0.2" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_registro.xml" value="0.21603260869565216" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_registro_turtor.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_registro_tutor.xml" value="0.23278985507246377" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_tipo_usuario.xml" value="0.21603260869565216" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/materia_persona.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/spinner_persona.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/mipmap-anydpi-v26/ic_logo.png.xml" value="0.2703125" />
+        <entry key="..\:/Users/angel/OneDrive/Escritorio/TutoTicos-feature01/TutoTicos-feature01/app/src/main/res/layout/lyt_datos_principales.xml" value="0.1796875" />
+        <entry key="..\:/Users/angel/OneDrive/Escritorio/TutoTicos-feature01/TutoTicos-feature01/app/src/main/res/layout/lyt_info_tutor.xml" value="0.1796875" />
+        <entry key="..\:/Users/angel/OneDrive/Escritorio/TutoTicos-feature01/TutoTicos-feature01/app/src/main/res/layout/lyt_registro.xml" value="0.1796875" />
+        <entry key="..\:/Users/angel/OneDrive/Escritorio/TutoTicos-feature01/TutoTicos-feature01/app/src/main/res/layout/lyt_registro_tutor.xml" value="0.1796875" />
+>>>>>>> Stashed changes
       </map>
     </option>
   </component>
