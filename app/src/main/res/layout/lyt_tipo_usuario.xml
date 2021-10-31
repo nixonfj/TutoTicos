@@ -9,14 +9,8 @@
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-<<<<<<< Updated upstream
-        android:src="@drawable/background_imagen"
-        android:scaleType="centerCrop"
-        />
-=======
         android:scaleType="centerCrop"
         android:src="@drawable/background_imagen"/>
->>>>>>> Stashed changes
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -44,14 +38,8 @@
                 <ImageView
                     android:layout_width="106dp"
                     android:layout_height="106dp"
-<<<<<<< Updated upstream
-
-                    android:layout_gravity="center_horizontal"
-                    android:src="@mipmap/logo" />
-=======
                     android:src="@drawable/logo_oscuro"
                     android:layout_gravity="center_horizontal" />
->>>>>>> Stashed changes
 
                 <TextView
                     android:id="@+id/textView2"
@@ -100,17 +88,10 @@
                     android:textSize="16sp" />
 
                 <Button
-<<<<<<< Updated upstream
-                    android:id="@+id/btnTutor"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/principal"
-=======
                     android:id="@+id/tipoCuenta_btn_tutor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#1B9AAA"
->>>>>>> Stashed changes
                     android:fontFamily="@font/nunito"
                     android:text="Tutor"
                     android:textColor="@color/white"
@@ -143,17 +124,10 @@
                     android:textSize="16sp" />
 
                 <Button
-<<<<<<< Updated upstream
-                    android:id="@+id/btnEst"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/principal"
-=======
                     android:id="@+id/tipoCuenta_btn_estudiante"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#1B9AAA"
->>>>>>> Stashed changes
                     android:fontFamily="@font/nunito"
                     android:padding="11dp"
                     android:text="Estudiante"

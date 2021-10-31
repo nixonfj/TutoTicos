@@ -3,11 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< Updated upstream
-    tools:context=".act_info_tutor">
-=======
     tools:context=".act_Info_tutor">
->>>>>>> Stashed changes
 
     <ImageView
         android:id="@+id/imageView2"
@@ -42,11 +38,7 @@
                     android:layout_height="106dp"
 
                     android:layout_gravity="center_horizontal"
-<<<<<<< Updated upstream
-                    android:src="@drawable/logo" />
-=======
                     android:src="@drawable/logo_oscuro" />
->>>>>>> Stashed changes
 
                 <TextView
                     android:id="@+id/textView2"
@@ -77,12 +69,6 @@
                     android:layout_marginBottom="20dp"
                     android:popupBackground="@color/principal"
                     android:spinnerMode="dropdown"
-<<<<<<< Updated upstream
-                    app:backgroundTint="@color/white" />
-
-                <EditText
-                    android:id="@+id/editTextNumber"
-=======
                     app:backgroundTint="@color/white"
                     tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
@@ -98,22 +84,12 @@
 
                 <EditText
                     android:id="@+id/txt_edad_infoT"
->>>>>>> Stashed changes
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:ems="10"
                     android:fontFamily="@font/nunito"
                     android:inputType="number"
-<<<<<<< Updated upstream
-                    android:text="Edad"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    app:backgroundTint="@color/white" />
-
-                <EditText
-                    android:id="@+id/editTextTextPersonName3"
-=======
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     app:backgroundTint="@color/white"
@@ -131,25 +107,16 @@
 
                 <EditText
                     android:id="@+id/txt_descripcion_infoT"
->>>>>>> Stashed changes
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:ems="10"
                     android:fontFamily="@font/nunito"
                     android:inputType="textPersonName"
-<<<<<<< Updated upstream
-                    android:text="Sobre mi"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    app:backgroundTint="@color/white"
-                    />
-=======
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     app:backgroundTint="@color/white"
                     tools:ignore="TouchTargetSizeCheck" />
->>>>>>> Stashed changes
 
             </LinearLayout>
 
@@ -186,9 +153,4 @@
     </LinearLayout>
 
 
-<<<<<<< Updated upstream
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-=======
-</androidx.constraintlayout.widget.ConstraintLayout>
->>>>>>> Stashed changes
