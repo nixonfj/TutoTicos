@@ -71,15 +71,16 @@ public class act_datos_principales extends AppCompatActivity {
 
                     //------------------------------------------------------------------------------
 
-                    /*String stringFilePath = Environment.getExternalStorageDirectory().getPath()+"/Download/"+txt_nombre.getText().toString()+".jpeg";
+                    /*String stringFilePath = Environment.getExternalStorageDirectory().getPath()+direccionFoto;
                     Bitmap bitmap = BitmapFactory.decodeFile(stringFilePath);
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArrayOutputStream);
                     byte[] bytesImage = byteArrayOutputStream.toByteArray();*/
+                    Bitmap bitmap = null;
 
                     String nombre = txt_nombre.getText().toString();
                     String apellido = txt_apellidos.getText().toString();
-                    Cuenta cuenta = new Cuenta(0, cuentaR.getNombreUsuario(), nombre, apellido, cuentaR.getCorreoUsuario(), cuentaR.getContrasenna(), cuentaR.getTipoCuenta());
+                    Cuenta cuenta = new Cuenta(0, cuentaR.getNombreUsuario(), nombre, apellido, cuentaR.getCorreoUsuario(), cuentaR.getContrasenna(), cuentaR.getTipoCuenta(), bitmap);
 
                     Intent intent = new Intent(act_datos_principales.this, act_tipo_usuario.class);
                     intent.putExtra("cuenta", cuenta);

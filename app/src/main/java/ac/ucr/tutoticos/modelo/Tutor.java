@@ -1,6 +1,7 @@
 package ac.ucr.tutoticos.modelo;
 
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -11,7 +12,7 @@ public class Tutor extends Cuenta implements Parcelable {
     double precio, calificacion;
 
     public Tutor(int idCuenta, String nombreUsuario, String nombre, String apellido, String correoUsuario, String contrasenna, int tipoCuenta, Bitmap imgUser, int idEspecialidad, int edad, String sexo, String descripcion, String modalidad, double precio, double calificacion) {
-        super(idCuenta, nombreUsuario, nombre, apellido, correoUsuario, contrasenna, tipoCuenta/*, imgUser*/);
+        super(idCuenta, nombreUsuario, nombre, apellido, correoUsuario, contrasenna, tipoCuenta, imgUser);
 
         this.idEspecialidad = idEspecialidad;
         this.edad = edad;
@@ -47,7 +48,7 @@ public class Tutor extends Cuenta implements Parcelable {
         modalidad = in.readString();
         precio = in.readDouble();
         calificacion = in.readDouble();
-        //imgUser = in.readParcelable(Uri.class.getClassLoader());
+        imgUser = in.readParcelable(Uri.class.getClassLoader());
     }
 
     @Override
@@ -140,7 +141,7 @@ public class Tutor extends Cuenta implements Parcelable {
         parcel.writeString(modalidad);
         parcel.writeDouble(precio);
         parcel.writeDouble(calificacion);
-        //parcel.writeParcelable(imgUser,i);
+        parcel.writeParcelable(imgUser,i);
 
     }
 

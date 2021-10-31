@@ -41,8 +41,8 @@ public class act_registroTutor extends AppCompatActivity {
             "precio DOUBLE NOT NULL," +
             "descripcion String NOT NULL," +
             "calidicacion DOUBLE NOT NULL," +
-            "modalidad String NOT NULL/*,"+
-            "picture Bitmap*/);";
+            "modalidad String NOT NULL,"+
+            "picture Bitmap);";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +109,7 @@ public class act_registroTutor extends AppCompatActivity {
         content.put("descripcion", t.getDescripcion());
         content.put("calidicacion", t.getCalificacion());
         content.put("modalidad", t.getModalidad());
-        //content.put("picture", String.valueOf(t.getImgUser()));
+        content.put("picture", String.valueOf(t.getImgUser()));
 
         return db.insert(TABLA_TUTOR, null,content) > 0;
 
@@ -132,14 +132,14 @@ public class act_registroTutor extends AppCompatActivity {
         content.put("descripcion", t.getDescripcion());
         content.put("calidicacion", t.getCalificacion());
         content.put("modalidad", t.getModalidad());
-        //content.put("picture", String.valueOf(t.getImgUser()));
+        content.put("picture", String.valueOf(t.getImgUser()));
 
         return db.update(TABLA_TUTOR, content, "id="+t.getIdCuenta(), null) > 0;
 
     }//fin del metodo
 
     private ArrayList<Tutor> getListaTutores(){
-        Cursor cursor = db.query(TABLA_TUTOR, new String[]{"id", "nombreUsuario", "nombre","apellido", "correoUsuario", "contrasena", "tipoCuenta", "idEspecialidad", "edad", "sexo", "precio", "descripcion", "calidicacion", "modalidad"/*, "picture"*/},
+        Cursor cursor = db.query(TABLA_TUTOR, new String[]{"id", "nombreUsuario", "nombre","apellido", "correoUsuario", "contrasena", "tipoCuenta", "idEspecialidad", "edad", "sexo", "precio", "descripcion", "calidicacion", "modalidad", "picture"},
                 null, null, null, null, "id desc");
 
         cursor.moveToFirst();
@@ -164,9 +164,9 @@ public class act_registroTutor extends AppCompatActivity {
             tuto.setCalificacion(cursor.getDouble(12));
             tuto.setModalidad(cursor.getString(13));
 
-            /*byte[] image = cursor.getBlob(14);
+            byte[] image = cursor.getBlob(14);
             Bitmap bitmapImage = BitmapFactory.decodeByteArray(image, 0, image.length);
-            tuto.setImgUser(bitmapImage);*/
+            tuto.setImgUser(bitmapImage);
 
             listaT.add(tuto);
             cursor.moveToNext();

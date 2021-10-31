@@ -9,9 +9,9 @@ public class Cuenta implements Parcelable {
     int idCuenta;
     String nombreUsuario, nombre, apellido, correoUsuario, contrasenna;
     int tipoCuenta;
-    //Bitmap imgUser;
+    Bitmap imgUser;
 
-    public Cuenta(int idCuenta, String nombreUsuario, String nombre, String apellido, String correoUsuario, String contrasenna, int tipoCuenta/*, Bitmap imgUser*/) {
+    public Cuenta(int idCuenta, String nombreUsuario, String nombre, String apellido, String correoUsuario, String contrasenna, int tipoCuenta, Bitmap imgUser) {
         this.idCuenta = idCuenta;
         this.nombreUsuario = nombreUsuario;
         this.nombre = nombre;
@@ -19,7 +19,7 @@ public class Cuenta implements Parcelable {
         this.correoUsuario = correoUsuario;
         this.contrasenna = contrasenna;
         this.tipoCuenta = tipoCuenta;
-        //this.imgUser = imgUser;
+        this.imgUser = imgUser;
     }
     public Cuenta() {
         this.idCuenta = 0;
@@ -29,7 +29,7 @@ public class Cuenta implements Parcelable {
         this.correoUsuario = "correoUsuario";
         this.contrasenna = "contrasenna";
         this.tipoCuenta = 0;
-        //this.imgUser = null;
+        this.imgUser = null;
     }
 
     protected Cuenta(Parcel in) {
@@ -40,7 +40,7 @@ public class Cuenta implements Parcelable {
         correoUsuario = in.readString();
         contrasenna = in.readString();
         tipoCuenta = in.readInt();
-        //imgUser = in.readParcelable(Bitmap.class.getClassLoader());
+        imgUser = in.readParcelable(Bitmap.class.getClassLoader());
     }
 
     public static final Creator<Cuenta> CREATOR = new Creator<Cuenta>() {
@@ -111,13 +111,13 @@ public class Cuenta implements Parcelable {
         this.tipoCuenta = tipoCuenta;
     }
 
-    /*public Bitmap getImgUser() {
+    public Bitmap getImgUser() {
         return imgUser;
     }
 
     public void setImgUser(Bitmap imgUser) {
         this.imgUser = imgUser;
-    }*/
+    }
 
     @Override
     public int describeContents() {
@@ -133,6 +133,6 @@ public class Cuenta implements Parcelable {
         parcel.writeString(correoUsuario);
         parcel.writeString(contrasenna);
         parcel.writeInt(tipoCuenta);
-        //parcel.writeParcelable(imgUser, i);
+        parcel.writeParcelable(imgUser, i);
     }
 }//fin de la clase

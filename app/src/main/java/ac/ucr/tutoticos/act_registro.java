@@ -61,7 +61,7 @@ public class act_registro extends AppCompatActivity {
                         cuenta.setCorreoUsuario(correo);
                         cuenta.setContrasenna(contrasena);
                         cuenta.setTipoCuenta(3);
-                        //cuenta.setImgUser(null);
+                        cuenta.setImgUser(null);
 
                         Intent intent = new Intent(act_registro.this, act_datos_principales.class);
                         intent.putExtra("cuenta", cuenta);
