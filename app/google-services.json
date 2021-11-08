@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "755343675572",
+    "project_id": "tutoticos-d1c07",
+    "storage_bucket": "tutoticos-d1c07.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:755343675572:android:cc3115b8f51e40d4bdc7e1",
+        "android_client_info": {
+          "package_name": "ac.ucr.tutoticos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "755343675572-tdt8fl7sp4tj1lu3847c48uqkci1fh77.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtTd_XBKGH-DlkO1Fac4ieyrVsv4MhjT4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "755343675572-tdt8fl7sp4tj1lu3847c48uqkci1fh77.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

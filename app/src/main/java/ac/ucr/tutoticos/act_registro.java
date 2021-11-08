@@ -54,7 +54,7 @@ public class act_registro extends AppCompatActivity {
 
                     if(contrasena.equalsIgnoreCase(contrasenaC)){
 
-                        cuenta.setIdCuenta(0);
+                        cuenta.setIdCuenta("");
                         cuenta.setNombreUsuario(user);
                         cuenta.setNombre("");
                         cuenta.setApellido("");

@@ -6,12 +6,12 @@ import android.os.Parcelable;
 
 public class Cuenta implements Parcelable {
 
-    int idCuenta;
+    String idCuenta;
     String nombreUsuario, nombre, apellido, correoUsuario, contrasenna;
     int tipoCuenta;
     Bitmap imgUser;
 
-    public Cuenta(int idCuenta, String nombreUsuario, String nombre, String apellido, String correoUsuario, String contrasenna, int tipoCuenta, Bitmap imgUser) {
+    public Cuenta(String idCuenta, String nombreUsuario, String nombre, String apellido, String correoUsuario, String contrasenna, int tipoCuenta, Bitmap imgUser) {
         this.idCuenta = idCuenta;
         this.nombreUsuario = nombreUsuario;
         this.nombre = nombre;
@@ -22,7 +22,7 @@ public class Cuenta implements Parcelable {
         this.imgUser = imgUser;
     }
     public Cuenta() {
-        this.idCuenta = 0;
+        this.idCuenta = "";
         this.nombreUsuario = "nombreUsuario";
         this.nombre = "nombre";
         this.apellido = "apellido";
@@ -33,7 +33,7 @@ public class Cuenta implements Parcelable {
     }
 
     protected Cuenta(Parcel in) {
-        idCuenta = in.readInt();
+        idCuenta = in.readString();
         nombreUsuario = in.readString();
         nombre = in.readString();
         apellido = in.readString();
@@ -55,11 +55,11 @@ public class Cuenta implements Parcelable {
         }
     };
 
-    public int getIdCuenta() {
+    public String getIdCuenta() {
         return idCuenta;
     }
 
-    public void setIdCuenta(int idCuenta) {
+    public void setIdCuenta(String idCuenta) {
         this.idCuenta = idCuenta;
     }
 
@@ -126,7 +126,7 @@ public class Cuenta implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(idCuenta);
+        parcel.writeString(idCuenta);
         parcel.writeString(nombreUsuario);
         parcel.writeString(nombre);
         parcel.writeString(apellido);

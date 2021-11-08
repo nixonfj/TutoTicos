@@ -11,7 +11,7 @@ public class Tutor extends Cuenta implements Parcelable {
     String sexo, descripcion, modalidad;
     double precio, calificacion;
 
-    public Tutor(int idCuenta, String nombreUsuario, String nombre, String apellido, String correoUsuario, String contrasenna, int tipoCuenta, Bitmap imgUser, int idEspecialidad, int edad, String sexo, String descripcion, String modalidad, double precio, double calificacion) {
+    public Tutor(String idCuenta, String nombreUsuario, String nombre, String apellido, String correoUsuario, String contrasenna, int tipoCuenta, Bitmap imgUser, int idEspecialidad, int edad, String sexo, String descripcion, String modalidad, double precio, double calificacion) {
         super(idCuenta, nombreUsuario, nombre, apellido, correoUsuario, contrasenna, tipoCuenta, imgUser);
 
         this.idEspecialidad = idEspecialidad;
@@ -34,7 +34,7 @@ public class Tutor extends Cuenta implements Parcelable {
         this.calificacion = 0;
     }
     protected Tutor(Parcel in){
-        idCuenta = in.readInt();
+        idCuenta = in.readString();
         nombreUsuario = in.readString();
         nombre = in.readString();
         apellido = in.readString();
@@ -127,7 +127,7 @@ public class Tutor extends Cuenta implements Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int i) {
 
-        parcel.writeInt(idCuenta);
+        parcel.writeString(idCuenta);
         parcel.writeString(nombreUsuario);
         parcel.writeString(nombre);
         parcel.writeString(apellido);

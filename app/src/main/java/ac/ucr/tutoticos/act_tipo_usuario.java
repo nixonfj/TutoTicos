@@ -41,7 +41,7 @@ public class act_tipo_usuario extends AppCompatActivity {
                 else
                 {
 
-                    tutor.setIdCuenta(0);
+                    tutor.setIdCuenta("");
                     tutor.setNombreUsuario(cuenta.getNombreUsuario());
                     tutor.setNombre(cuenta.getNombre());
                     tutor.setApellido(cuenta.getApellido());
