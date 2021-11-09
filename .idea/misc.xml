@@ -3,12 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Dell/AndroidStudioProjects/menu_desplegable/app/src/main/res/layout/activity_lyt_menu_hamburguesa.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Dell/AndroidStudioProjects/menu_desplegable/app/src/main/res/layout/app_bar_lyt_menu_hamburguesa.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Dell/AndroidStudioProjects/menu_desplegable/app/src/main/res/layout/content_lyt_menu_hamburguesa.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Dell/AndroidStudioProjects/menu_desplegable/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Dell/AndroidStudioProjects/menu_desplegable/app/src/main/res/menu/activity_lyt_menu_hamburguesa_drawer.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Dell/AndroidStudioProjects/menu_desplegable/app/src/main/res/menu/lyt_menu_hamburguesa.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/perfil_estudiante/app/src/main/res/drawable/arrow.xml" value="0.21666666666666667" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/perfil_estudiante/app/src/main/res/drawable/check.xml" value="0.21666666666666667" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/perfil_estudiante/app/src/main/res/drawable/delete.xml" value="0.21666666666666667" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/perfil_estudiante/app/src/main/res/drawable/iconcuenta.xml" value="0.21666666666666667" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/perfil_estudiante/app/src/main/res/drawable/simplearrow.xml" value="0.21666666666666667" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/perfil_estudiante/app/src/main/res/layout/activity_main.xml" value="0.23645833333333333" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/perfil_estudiante/app/src/main/res/layout/lyt_editarperfil.xml" value="0.264" />
       </map>
     </option>
   </component>
