@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_weight="1">
+
+        <Spinner
+            android:id="@+id/spDia"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="3dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_perso_horario"
+            android:popupBackground="@color/principal"
+            android:spinnerMode="dropdown"
+            android:textAlignment="center" />
+
+        <EditText
+            android:id="@+id/txtHoraInicio"
+            android:layout_width="183dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_perso_horario"
+            android:ems="10"
+            android:fontFamily="@font/nunito"
+            android:inputType="time"
+            android:padding="3dp"
+            android:textAlignment="center"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/txtHoraFinal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="3dp"
+            android:background="@drawable/btn_perso_horario"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:fontFamily="@font/nunito"
+            android:ems="10"
+            android:inputType="time" />
+
+    </LinearLayout>
+
+</LinearLayout>
