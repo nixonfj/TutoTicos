@@ -49,8 +49,16 @@ public class act_registroTutor extends AppCompatActivity {
 
         if (addTutor != null)
         {
-            devolverTutor();
-
+            if(agregarTutor(addTutor))
+            {
+                Intent intent = new Intent(act_registroTutor.this, act_iniciosesion.class);
+                    /*Tutor t = getTutor(listaTutores, addTutor.getNombreUsuario());
+                    intent.putExtra("tutor", t);*/
+                startActivity(intent);
+            }else
+            {
+                Toast.makeText(getApplicationContext(),"Error al registrar Usuario",Toast.LENGTH_LONG).show();
+            }
         }//fin del if
 
         if(loginCuenta != null){
@@ -66,36 +74,6 @@ public class act_registroTutor extends AppCompatActivity {
         databaseReference = databaseFirebase.getReference();//obtengo referencia para utilizar la base de datos
 
     }//fin del metodo inicializarFireBase
-
-    public void devolverTutor()
-    {
-        ArrayList<Tutor> listaTutores= new ArrayList<>();
-        databaseReference.child("Tutor").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot obj: snapshot.getChildren()){
-                    tutor = obj.getValue(Tutor.class);
-                    listaTutores.add(tutor);
-                }
-                if(agregarTutor(addTutor))
-                {
-                    Intent intent = new Intent(act_registroTutor.this, act_perfiltutor.class);
-                    Tutor t = getTutor(listaTutores, addTutor.getNombreUsuario());
-                    intent.putExtra("tutor", t);
-                    startActivity(intent);
-                }else
-                {
-                    Toast.makeText(getApplicationContext(),"Error al registrar Usuario",Toast.LENGTH_LONG).show();
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                System.out.println("Fallo la lectura: " + error.getCode());
-            }
-        });
-
-    }//fin del metodo lista de datos
 
     public void loginVerification()
     {
@@ -135,17 +113,31 @@ public class act_registroTutor extends AppCompatActivity {
     }//fin del metodo lista de datos
 
     public boolean agregarTutor(Tutor t){
-        t.setIdCuenta(UUID.randomUUID().toString());
-        databaseReference.child("Tutor").child(t.getIdCuenta()).setValue(t);
-        return true;
+        if(t != null)
+        {
+            t.setIdCuenta(UUID.randomUUID().toString());
+            databaseReference.child("Tutor").child(t.getIdCuenta()).setValue(t);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
 
     }//fin del metodo
 
     public Tutor getTutor(ArrayList<Tutor> list, String user){
-        for (int i = 0; i <= list.size(); i++){
-            if(list.get(i).getNombreUsuario().equalsIgnoreCase(user))
-            {
-                return list.get(i);
+        if(list.size() > 0)
+        {
+            for (int i = 0; i <= list.size(); i++){
+                if(list.get(i).getNombreUsuario().equalsIgnoreCase(user))
+                {
+                    return list.get(i);
+                }
+                else
+                {
+                    return null;
+                }
             }
         }
         return null;
