@@ -1,5 +1,6 @@
 package ac.ucr.tutoticos;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
@@ -10,171 +11,133 @@ import android.database.sqlite.SQLiteOutOfMemoryException;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 import ac.ucr.tutoticos.modelo.Cuenta;
 import ac.ucr.tutoticos.modelo.Tutor;
 
 public class act_registroTutor extends AppCompatActivity {
 
-    private static SQLiteDatabase db;//definicion de la base de datos
-    private  static final String TUTOR_BD = "MultiSQLite";//nombre de la base de datos
-    private final String TABLA_TUTOR = "tutor";//nombre de la tabla
+    Tutor tutor;
+    FirebaseDatabase databaseFirebase;
+    DatabaseReference databaseReference;
 
     Tutor addTutor;
     Cuenta loginCuenta;
-    ArrayList<Tutor> tutores;
-
-    public  static  final  String tbTutor = "CREATE TABLE IF NOT EXISTS" +
-            " tutor(id INTEGER PRIMARY KEY AUTOINCREMENT,"+
-            "nombreUsuario String NOT NULL," +
-            "nombre String NOT NULL," +
-            "apellido String NOT NULL," +
-            "correoUsuario String NOT NULL," +
-            "contrasena String NOT NULL," +
-            "tipoCuenta INTEGER NOT NULL," +
-            "idEspecialidad INTEGER NOT NULL," +
-            "edad INTEGER NOT NULL," +
-            "sexo String NOT NULL," +
-            "precio DOUBLE NOT NULL," +
-            "descripcion String NOT NULL," +
-            "calidicacion DOUBLE NOT NULL," +
-            "modalidad String NOT NULL/*,"+
-            "picture Bitmap*/);";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_registro_tutor);
 
-        //deleteDatabase(TUTOR_BD);
-        abrirDBTutor();
-
         addTutor = getIntent().getParcelableExtra("tutor");
         loginCuenta = getIntent().getParcelableExtra("login");
 
+        inicializarFirebase();
+
         if (addTutor != null)
         {
-            if(agregarTutor(addTutor))
-            {
-                Intent intent = new Intent(act_registroTutor.this, act_perfiltutor.class);
-                Tutor t = getTutor(getListaTutores(), addTutor.getNombreUsuario());
-                intent.putExtra("tutor", t);
-                startActivity(intent);
-            }else
-            {
-                Toast.makeText(getApplicationContext(),"Error al registrar Usuario",Toast.LENGTH_LONG).show();
-            }
-        }
+            devolverTutor();
+
+        }//fin del if
 
         if(loginCuenta != null){
-            Tutor logT = getCuentaLogin(getListaTutores(), loginCuenta.getNombreUsuario());
-            if(logT != null){
-                if(logT.getContrasenna().equalsIgnoreCase(loginCuenta.getContrasenna())){
-                    Intent intent = new Intent(act_registroTutor.this, act_perfiltutor.class);
-                    intent.putExtra("tutor", logT);
-                    startActivity(intent);
-                }else{
-                    Toast.makeText(getApplicationContext(),"Usuario o contraseña incorracta",Toast.LENGTH_SHORT).show();
-                    Intent intent= new Intent (act_registroTutor.this, act_iniciosesion.class);
-                    startActivity(intent);
-                }
-
-            }else{
-                Toast.makeText(getApplicationContext(),"usuario no encontrado",Toast.LENGTH_SHORT).show();
-                Intent intent= new Intent (act_registroTutor.this, act_iniciosesion.class);
-                startActivity(intent);
-            }
-
-        }
+            loginVerification();
+        }//fin del if
 
     }//fin del onCreate
 
+    public void  inicializarFirebase()
+    {
+        FirebaseApp.initializeApp(this);
+        databaseFirebase = FirebaseDatabase.getInstance();//obtengo instancia de firebase
+        databaseReference = databaseFirebase.getReference();//obtengo referencia para utilizar la base de datos
+
+    }//fin del metodo inicializarFireBase
+
+    public void devolverTutor()
+    {
+        ArrayList<Tutor> listaTutores= new ArrayList<>();
+        databaseReference.child("Tutor").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot obj: snapshot.getChildren()){
+                    tutor = obj.getValue(Tutor.class);
+                    listaTutores.add(tutor);
+                }
+                if(agregarTutor(addTutor))
+                {
+                    Intent intent = new Intent(act_registroTutor.this, act_perfiltutor.class);
+                    Tutor t = getTutor(listaTutores, addTutor.getNombreUsuario());
+                    intent.putExtra("tutor", t);
+                    startActivity(intent);
+                }else
+                {
+                    Toast.makeText(getApplicationContext(),"Error al registrar Usuario",Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                System.out.println("Fallo la lectura: " + error.getCode());
+            }
+        });
+
+    }//fin del metodo lista de datos
+
+    public void loginVerification()
+    {
+        ArrayList<Tutor> listaTutores= new ArrayList<>();
+        databaseReference.child("Tutor").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot obj: snapshot.getChildren()){
+                    tutor = obj.getValue(Tutor.class);
+                    listaTutores.add(tutor);
+                }
+                Tutor logT = getTutor(listaTutores, loginCuenta.getNombreUsuario());
+                if(logT != null){
+                    if(logT.getContrasenna().equalsIgnoreCase(loginCuenta.getContrasenna())){
+                        Intent intent = new Intent(act_registroTutor.this, act_perfiltutor.class);
+                        intent.putExtra("tutor", logT);
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Usuario o contraseña incorracta",Toast.LENGTH_SHORT).show();
+                        Intent intent= new Intent (act_registroTutor.this, act_iniciosesion.class);
+                        startActivity(intent);
+                    }
+
+                }else{
+                    Toast.makeText(getApplicationContext(),"usuario no encontrado",Toast.LENGTH_SHORT).show();
+                    Intent intent= new Intent (act_registroTutor.this, act_iniciosesion.class);
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                System.out.println("Fallo la lectura: " + error.getCode());
+            }
+        });
+
+    }//fin del metodo lista de datos
+
     public boolean agregarTutor(Tutor t){
-
-        ContentValues content = new ContentValues();
-
-        content.put("nombreUsuario", t.getNombreUsuario());
-        content.put("nombre", t.getNombre());
-        content.put("apellido", t.getApellido());
-        content.put("correoUsuario", t.getCorreoUsuario());
-        content.put("contrasena", t.getContrasenna());
-        content.put("tipoCuenta", t.getTipoCuenta());
-        content.put("idEspecialidad", t.getIdEspecialidad());
-        content.put("edad", t.getEdad());
-        content.put("sexo", t.getSexo());
-        content.put("precio", t.getPrecio());
-        content.put("descripcion", t.getDescripcion());
-        content.put("calidicacion", t.getCalificacion());
-        content.put("modalidad", t.getModalidad());
-        //content.put("picture", String.valueOf(t.getImgUser()));
-
-        return db.insert(TABLA_TUTOR, null,content) > 0;
-
-    }//fin del metodo
-
-    public boolean actualizarTutor(Tutor t){
-
-        ContentValues content = new ContentValues();
-
-        content.put("nombreUsuario", t.getNombreUsuario());
-        content.put("nombre", t.getNombre());
-        content.put("apellido", t.getApellido());
-        content.put("correoUsuario", t.getCorreoUsuario());
-        content.put("contrasena", t.getContrasenna());
-        content.put("tipoCuenta", t.getTipoCuenta());
-        content.put("idEspecialidad", t.getIdEspecialidad());
-        content.put("edad", t.getEdad());
-        content.put("sexo", t.getSexo());
-        content.put("precio", t.getPrecio());
-        content.put("descripcion", t.getDescripcion());
-        content.put("calidicacion", t.getCalificacion());
-        content.put("modalidad", t.getModalidad());
-        //content.put("picture", String.valueOf(t.getImgUser()));
-
-        return db.update(TABLA_TUTOR, content, "id="+t.getIdCuenta(), null) > 0;
-
-    }//fin del metodo
-
-    private ArrayList<Tutor> getListaTutores(){
-        Cursor cursor = db.query(TABLA_TUTOR, new String[]{"id", "nombreUsuario", "nombre","apellido", "correoUsuario", "contrasena", "tipoCuenta", "idEspecialidad", "edad", "sexo", "precio", "descripcion", "calidicacion", "modalidad"/*, "picture"*/},
-                null, null, null, null, "id desc");
-
-        cursor.moveToFirst();
-        ArrayList<Tutor> listaT = new ArrayList<>();
-
-        while (!cursor.isAfterLast()){
-
-            Tutor tuto = new Tutor();
-
-            tuto.setIdCuenta(cursor.getInt(0));
-            tuto.setNombreUsuario(cursor.getString(1));
-            tuto.setNombre(cursor.getString(2));
-            tuto.setApellido(cursor.getString(3));
-            tuto.setCorreoUsuario(cursor.getString(4));
-            tuto.setContrasenna(cursor.getString(5));
-            tuto.setTipoCuenta(cursor.getInt(6));
-            tuto.setIdEspecialidad(cursor.getInt(7));
-            tuto.setEdad(cursor.getInt(8));
-            tuto.setSexo(cursor.getString(9));
-            tuto.setPrecio(cursor.getDouble(10));
-            tuto.setDescripcion(cursor.getString(11));
-            tuto.setCalificacion(cursor.getDouble(12));
-            tuto.setModalidad(cursor.getString(13));
-
-            /*byte[] image = cursor.getBlob(14);
-            Bitmap bitmapImage = BitmapFactory.decodeByteArray(image, 0, image.length);
-            tuto.setImgUser(bitmapImage);*/
-
-            listaT.add(tuto);
-            cursor.moveToNext();
-
-        }//fin del while
-
-        cursor.close();
-        return listaT;
+        t.setIdCuenta(UUID.randomUUID().toString());
+        databaseReference.child("Tutor").child(t.getIdCuenta()).setValue(t);
+        return true;
 
     }//fin del metodo
 
@@ -186,36 +149,6 @@ public class act_registroTutor extends AppCompatActivity {
             }
         }
         return null;
-    }//fin del metodo
-
-    public Tutor getCuentaLogin(ArrayList<Tutor> list, String user){
-        if(list.size() > 0)
-        {
-            for (int i=0; i <= list.size(); i++){
-                if(list.get(i).getNombreUsuario().equalsIgnoreCase(user))
-                {
-                    return list.get(i);
-                }
-                else
-                {
-                    return null;
-                }
-            }
-        }
-    return null;
-
-    }//fin del metodo
-
-    public void abrirDBTutor(){
-        try {
-            db = openOrCreateDatabase(TUTOR_BD, MODE_PRIVATE, null);
-            db .execSQL(tbTutor);
-
-        }catch (SQLiteOutOfMemoryException e){
-            e.printStackTrace();
-            Toast.makeText(getApplicationContext(),"Error al crear la base de datos", Toast.LENGTH_SHORT).show();
-        }
-
     }//fin del metodo
 
 }//fin de la clase

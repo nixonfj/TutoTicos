@@ -6,12 +6,12 @@ import android.os.Parcelable;
 
 public class Cuenta implements Parcelable {
 
-    int idCuenta;
+    String idCuenta;
     String nombreUsuario, nombre, apellido, correoUsuario, contrasenna;
     int tipoCuenta;
-    //Bitmap imgUser;
+    Bitmap imgUser;
 
-    public Cuenta(int idCuenta, String nombreUsuario, String nombre, String apellido, String correoUsuario, String contrasenna, int tipoCuenta/*, Bitmap imgUser*/) {
+    public Cuenta(String idCuenta, String nombreUsuario, String nombre, String apellido, String correoUsuario, String contrasenna, int tipoCuenta, Bitmap imgUser) {
         this.idCuenta = idCuenta;
         this.nombreUsuario = nombreUsuario;
         this.nombre = nombre;
@@ -19,28 +19,28 @@ public class Cuenta implements Parcelable {
         this.correoUsuario = correoUsuario;
         this.contrasenna = contrasenna;
         this.tipoCuenta = tipoCuenta;
-        //this.imgUser = imgUser;
+        this.imgUser = imgUser;
     }
     public Cuenta() {
-        this.idCuenta = 0;
+        this.idCuenta = "";
         this.nombreUsuario = "nombreUsuario";
         this.nombre = "nombre";
         this.apellido = "apellido";
         this.correoUsuario = "correoUsuario";
         this.contrasenna = "contrasenna";
         this.tipoCuenta = 0;
-        //this.imgUser = null;
+        this.imgUser = null;
     }
 
     protected Cuenta(Parcel in) {
-        idCuenta = in.readInt();
+        idCuenta = in.readString();
         nombreUsuario = in.readString();
         nombre = in.readString();
         apellido = in.readString();
         correoUsuario = in.readString();
         contrasenna = in.readString();
         tipoCuenta = in.readInt();
-        //imgUser = in.readParcelable(Bitmap.class.getClassLoader());
+        imgUser = in.readParcelable(Bitmap.class.getClassLoader());
     }
 
     public static final Creator<Cuenta> CREATOR = new Creator<Cuenta>() {
@@ -55,11 +55,11 @@ public class Cuenta implements Parcelable {
         }
     };
 
-    public int getIdCuenta() {
+    public String getIdCuenta() {
         return idCuenta;
     }
 
-    public void setIdCuenta(int idCuenta) {
+    public void setIdCuenta(String idCuenta) {
         this.idCuenta = idCuenta;
     }
 
@@ -111,13 +111,13 @@ public class Cuenta implements Parcelable {
         this.tipoCuenta = tipoCuenta;
     }
 
-    /*public Bitmap getImgUser() {
+    public Bitmap getImgUser() {
         return imgUser;
     }
 
     public void setImgUser(Bitmap imgUser) {
         this.imgUser = imgUser;
-    }*/
+    }
 
     @Override
     public int describeContents() {
@@ -126,13 +126,13 @@ public class Cuenta implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(idCuenta);
+        parcel.writeString(idCuenta);
         parcel.writeString(nombreUsuario);
         parcel.writeString(nombre);
         parcel.writeString(apellido);
         parcel.writeString(correoUsuario);
         parcel.writeString(contrasenna);
         parcel.writeInt(tipoCuenta);
-        //parcel.writeParcelable(imgUser, i);
+        parcel.writeParcelable(imgUser, i);
     }
 }//fin de la clase

@@ -40,18 +40,13 @@ public class act_tipo_usuario extends AppCompatActivity {
                 }
                 else
                 {
-                    String nombreU = cuenta.getNombreUsuario();
-                    String nombre = cuenta.getNombre();
-                    String apellido = cuenta.getApellido();
-                    String correo = cuenta.getCorreoUsuario();
-                    String pass = cuenta.getContrasenna();
 
-                    tutor.setIdCuenta(0);
-                    tutor.setNombreUsuario(nombreU);
-                    tutor.setNombre(nombre);
-                    tutor.setApellido(apellido);
-                    tutor.setCorreoUsuario(correo);
-                    tutor.setContrasenna(pass);
+                    tutor.setIdCuenta("");
+                    tutor.setNombreUsuario(cuenta.getNombreUsuario());
+                    tutor.setNombre(cuenta.getNombre());
+                    tutor.setApellido(cuenta.getApellido());
+                    tutor.setCorreoUsuario(cuenta.getCorreoUsuario());
+                    tutor.setContrasenna(cuenta.getContrasenna());
                     tutor.setTipoCuenta(0);
                     tutor.setIdEspecialidad(1);
                     tutor.setEdad(20);
@@ -60,7 +55,7 @@ public class act_tipo_usuario extends AppCompatActivity {
                     tutor.setModalidad("Virtual");
                     tutor.setPrecio(0);
                     tutor.setCalificacion(5);
-                    //tutor.setImgUser(null);
+                    tutor.setImgUser(cuenta.getImgUser());
 
                     Intent intent = new Intent(act_tipo_usuario.this, act_Info_tutor.class);
                     intent.putExtra("tutor", tutor);

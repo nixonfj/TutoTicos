@@ -19,6 +19,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.StorageReference;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -42,6 +46,7 @@ public class act_datos_principales extends AppCompatActivity {
 
     private final int galeria = 1;
     private final int camara = 2;
+    DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +63,9 @@ public class act_datos_principales extends AppCompatActivity {
 
         cuentaR = getIntent().getParcelableExtra("cuenta");
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("cuenta");
+
         btn_continuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,18 +76,9 @@ public class act_datos_principales extends AppCompatActivity {
                 }
                 else
                 {
-
-                    //------------------------------------------------------------------------------
-
-                    /*String stringFilePath = Environment.getExternalStorageDirectory().getPath()+"/Download/"+txt_nombre.getText().toString()+".jpeg";
-                    Bitmap bitmap = BitmapFactory.decodeFile(stringFilePath);
-                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArrayOutputStream);
-                    byte[] bytesImage = byteArrayOutputStream.toByteArray();*/
-
                     String nombre = txt_nombre.getText().toString();
                     String apellido = txt_apellidos.getText().toString();
-                    Cuenta cuenta = new Cuenta(0, cuentaR.getNombreUsuario(), nombre, apellido, cuentaR.getCorreoUsuario(), cuentaR.getContrasenna(), cuentaR.getTipoCuenta());
+                    Cuenta cuenta = new Cuenta("id", cuentaR.getNombreUsuario(), nombre, apellido, cuentaR.getCorreoUsuario(), cuentaR.getContrasenna(), cuentaR.getTipoCuenta(), null);
 
                     Intent intent = new Intent(act_datos_principales.this, act_tipo_usuario.class);
                     intent.putExtra("cuenta", cuenta);

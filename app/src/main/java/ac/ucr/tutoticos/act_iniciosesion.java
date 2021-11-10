@@ -97,14 +97,14 @@ public class act_iniciosesion extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                biometricPrompt.authenticate(promptInfo);
+
 
                 if(txt_usuario.getText().toString().isEmpty() || txt_contrasena.getText().toString().isEmpty())
                 {
                     Toast.makeText(getApplicationContext(),"Favor llenar todos los campos",Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    cuenta.setIdCuenta(0);
+                    cuenta.setIdCuenta("");
                     cuenta.setNombreUsuario(txt_usuario.getText().toString());
                     cuenta.setNombre("");
                     cuenta.setApellido("");

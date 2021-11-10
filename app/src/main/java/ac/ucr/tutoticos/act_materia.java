@@ -58,7 +58,7 @@ public class act_materia extends AppCompatActivity {
                 tutor.setModalidad(tutoR.getModalidad());
                 tutor.setPrecio(tutoR.getPrecio());
                 tutor.setCalificacion(tutoR.getCalificacion());
-                //tutor.setImgUser(tutoR.getImgUser());
+                tutor.setImgUser(tutoR.getImgUser());
 
 
                 Intent intent = new Intent(act_materia.this, act_horario.class);

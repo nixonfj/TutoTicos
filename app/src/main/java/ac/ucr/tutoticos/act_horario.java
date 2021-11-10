@@ -52,7 +52,7 @@ public class act_horario extends AppCompatActivity {
                 tutor.setModalidad(tutoR.getModalidad());
                 tutor.setPrecio(tutoR.getPrecio());
                 tutor.setCalificacion(tutoR.getCalificacion());
-                //tutor.setImgUser(tutoR.getImgUser());
+                tutor.setImgUser(tutoR.getImgUser());
 
                 Intent intent= new Intent (act_horario.this, act_registroTutor.class);
                 intent.putExtra("tutor", tutor);
