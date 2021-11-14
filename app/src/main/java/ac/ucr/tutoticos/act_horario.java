@@ -12,6 +12,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import ac.ucr.tutoticos.modelo.Tutor;
 
 public class act_horario extends AppCompatActivity {
@@ -70,6 +74,17 @@ public class act_horario extends AppCompatActivity {
     }
 
     private void addView() {
+
+        //------------------------------------------------------------
+        Date date = new Date();
+        DateFormat formatoHora = new SimpleDateFormat("HH:mm:ss");
+        DateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+
+        //asi asigno el valor
+        System.out.println("Hora actual: " + formatoHora.format(date));
+        System.out.println("Hora actual: " + formatoFecha.format(date));
+        //------------------------------------------------------------
+
         View nuevaVista = getLayoutInflater().inflate(R.layout.horario_persona, null,false);
 
         Spinner spDia;

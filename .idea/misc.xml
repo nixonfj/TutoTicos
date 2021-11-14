@@ -4,13 +4,19 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_aceptacion_clase.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_comentarios_tutor.xml" value="0.25" />
         <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_datos_principales.xml" value="0.264" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_editar_perfil_estudiante.xml" value="0.264" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_horario.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_info_tutor.xml" value="0.25317028985507245" />
         <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_iniciosesion.xml" value="0.23777173913043478" />
         <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_materia.xml" value="0.25317028985507245" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_pantalla_busqueda.xml" value="0.245018115942029" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_perfil_estudiante.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_perfiltutor.xml" value="0.264" />
         <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_registro.xml" value="0.264" />
+        <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_terminos_condiciones.xml" value="0.245018115942029" />
         <entry key="..\:/Users/Nixon/Documents/GitHub/TutoTicos/app/src/main/res/layout/lyt_tipo_usuario.xml" value="0.20018115942028986" />
       </map>
     </option>
