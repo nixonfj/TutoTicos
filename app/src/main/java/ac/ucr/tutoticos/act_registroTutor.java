@@ -129,14 +129,10 @@ public class act_registroTutor extends AppCompatActivity {
     public Tutor getTutor(ArrayList<Tutor> list, String user){
         if(list.size() > 0)
         {
-            for (int i = 0; i <= list.size(); i++){
+            for (int i = 0; i < list.size(); i++){
                 if(list.get(i).getNombreUsuario().equalsIgnoreCase(user))
                 {
                     return list.get(i);
-                }
-                else
-                {
-                    return null;
                 }
             }
         }

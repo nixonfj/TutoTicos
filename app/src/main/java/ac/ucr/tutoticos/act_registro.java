@@ -9,6 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 import ac.ucr.tutoticos.modelo.Cuenta;
 
 public class act_registro extends AppCompatActivity {
@@ -54,6 +58,7 @@ public class act_registro extends AppCompatActivity {
 
                     if(contrasena.equalsIgnoreCase(contrasenaC)){
 
+                        //envio a la siguiente ventana
                         cuenta.setIdCuenta("");
                         cuenta.setNombreUsuario(user);
                         cuenta.setNombre("");
