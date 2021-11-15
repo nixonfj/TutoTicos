@@ -17,12 +17,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.Executor;
 
 import ac.ucr.tutoticos.modelo.Cuenta;
+import ac.ucr.tutoticos.modelo.Estudiante;
+import ac.ucr.tutoticos.modelo.Tutor;
 
 public class act_iniciosesion extends AppCompatActivity {
 
@@ -30,13 +40,18 @@ public class act_iniciosesion extends AppCompatActivity {
     TextView txt_registrarse, txt_msj;
     EditText txt_usuario, txt_contrasena;
 
+    Estudiante estudiante;
+
     Cuenta cuenta = new Cuenta();
+    FirebaseDatabase databaseFirebase;
+    DatabaseReference databaseReference;
 
     @RequiresApi(api = Build.VERSION_CODES.Q)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_iniciosesion);
+        inicializarFirebase();
 
         btn_ingresar = findViewById(R.id.btn_ingresar);
 
@@ -115,9 +130,7 @@ public class act_iniciosesion extends AppCompatActivity {
                     cuenta.setContrasenna(txt_contrasena.getText().toString());
                     cuenta.setTipoCuenta(-1);
 
-                    Intent intent = new Intent(act_iniciosesion.this, act_registroTutor.class);
-                    intent.putExtra("login", cuenta);
-                    startActivity(intent);
+                    loginVerification();
                 }
 
             }
@@ -132,5 +145,70 @@ public class act_iniciosesion extends AppCompatActivity {
             }
         });
     }//fin del onCreate
+
+    public void loginVerification()
+    {
+        ArrayList<Estudiante> listaEstudiantes= new ArrayList<>();
+        databaseReference.child("Estudiante").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot obj: snapshot.getChildren()){
+                    estudiante = obj.getValue(Estudiante.class);
+                    listaEstudiantes.add(estudiante);
+                }
+                Estudiante logE = getEstudiante(listaEstudiantes, cuenta.getNombreUsuario());
+                if(logE != null){
+                    if(logE.getContrasenna().equalsIgnoreCase(cuenta.getContrasenna())){
+                        Intent intent = new Intent(act_iniciosesion.this, act_pantalla_principal.class);
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(getApplicationContext(),"Usuario o contraseña incorracta",Toast.LENGTH_SHORT).show();
+                        clear();
+                    }
+
+                }else{
+
+                    Intent intent = new Intent(act_iniciosesion.this, act_registroTutor.class);
+                    intent.putExtra("login", cuenta);
+                    startActivity(intent);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                System.out.println("Fallo la lectura: " + error.getCode());
+            }
+        });
+
+    }//fin del metodo lista de datos
+
+    public Estudiante getEstudiante(ArrayList<Estudiante> list, String user){
+        if(list.size() > 0)
+        {
+            for (int i = 0; i < list.size(); i++){
+                if(list.get(i).getNombreUsuario().equalsIgnoreCase(user))
+                {
+                    return list.get(i);
+                }
+            }
+        }
+
+        return null;
+
+    }//fin del metodo
+
+    public void clear()
+    {
+        txt_usuario.setText("");
+        txt_contrasena.setText("");
+    }//fin del metodo
+
+    public void  inicializarFirebase()
+    {
+        FirebaseApp.initializeApp(this);
+        databaseFirebase = FirebaseDatabase.getInstance();//obtengo instancia de firebase
+        databaseReference = databaseFirebase.getReference();//obtengo referencia para utilizar la base de datos
+
+    }//fin del metodo inicializarFireBase
 
 }//fin de la clase
