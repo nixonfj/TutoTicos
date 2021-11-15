@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".act_modalidad_precio"
+            android:exported="true" />
+        <activity
             android:name=".act_terminosCondiciones"
             android:exported="true" />
         <activity

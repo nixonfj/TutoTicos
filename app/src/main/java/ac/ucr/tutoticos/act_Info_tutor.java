@@ -28,7 +28,7 @@ public class act_Info_tutor extends AppCompatActivity {
         setContentView(R.layout.lyt_info_tutor);
 
         sp_sexo = findViewById(R.id.spSexo);
-        continuar = findViewById(R.id.btnNextHorario);
+        continuar = findViewById(R.id.btn_modalidad_continuar);
         txt_edad = findViewById(R.id.txt_edad_infoT);
         txt_descripcion = findViewById(R.id.txt_descripcion_infoT);
 
@@ -68,8 +68,8 @@ public class act_Info_tutor extends AppCompatActivity {
                             tutor.setEdad(Integer.parseInt(txt_edad.getText().toString()));
                             tutor.setSexo(sp_sexo.getSelectedItem().toString());
                             tutor.setDescripcion(txt_descripcion.getText().toString());
-                            tutor.setModalidad("Modalidad");
-                            tutor.setPrecio(0.0);
+                            tutor.setModalidad(tutoR.getModalidad());
+                            tutor.setPrecio(tutoR.getPrecio());
                             tutor.setCalificacion(0.0);
                             tutor.setImgUser(tutoR.getImgUser());
 

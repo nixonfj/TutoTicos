@@ -25,6 +25,7 @@ public class act_tipo_usuario extends AppCompatActivity {
     Cuenta cuenta;
     Tutor tutor = new Tutor();
     Estudiante estudiante=new Estudiante();
+
     FirebaseDatabase databaseFirebase;
     DatabaseReference databaseReference;
 
@@ -66,7 +67,7 @@ public class act_tipo_usuario extends AppCompatActivity {
                     tutor.setCalificacion(5);
                     tutor.setImgUser(cuenta.getImgUser());
 
-                    Intent intent = new Intent(act_tipo_usuario.this, act_Info_tutor.class);
+                    Intent intent = new Intent(act_tipo_usuario.this, act_modalidad_precio.class);
                     intent.putExtra("tutor", tutor);
                     startActivity(intent);
                 }
