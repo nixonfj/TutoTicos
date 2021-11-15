@@ -72,6 +72,7 @@ public class act_Info_tutor extends AppCompatActivity {
                             tutor.setPrecio(tutoR.getPrecio());
                             tutor.setCalificacion(0.0);
                             tutor.setImgUser(tutoR.getImgUser());
+                            tutor.setMateria(tutoR.getMateria());
 
                             Intent intent = new Intent(act_Info_tutor.this, act_materia.class);
                             intent.putExtra("tutor", tutor);

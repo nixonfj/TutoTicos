@@ -10,15 +10,22 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
+import java.util.ArrayList;
+
+import ac.ucr.tutoticos.modelo.Materia;
 import ac.ucr.tutoticos.modelo.Tutor;
 
 public class act_materia extends AppCompatActivity {
 
     private Button btnAddMateria, btn_continuar;
     private LinearLayout lytMateria;
+    Spinner spMateria;
 
     Tutor tutor = new Tutor();
     Tutor tutoR;
+
+    Materia materia;
+    ArrayList<Materia> listaM = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +44,17 @@ public class act_materia extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addMateria();
+                //agregado de la materia seleccionada a la lista
+                Materia mat= new Materia(spMateria.getSelectedItem().toString());
+                listaM.add(mat);
             }
         });
 
         btn_continuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                tutor.setMateria(listaM);
 
                 tutor.setIdCuenta(tutoR.getIdCuenta());
                 tutor.setNombreUsuario(tutoR.getNombreUsuario());
@@ -72,13 +84,11 @@ public class act_materia extends AppCompatActivity {
     private void addMateria(){
         View nuevaVista = getLayoutInflater().inflate(R.layout.materia_persona, null,false);
 
-        Spinner spMateria;
-
         spMateria = nuevaVista.findViewById(R.id.spMateria);
-
 
         String [] opciones= {"Español", "Matemáticas", "Estudios Sociales", "Ciencias", "Civica", "Química", "Biología", "Física Mate"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_persona, opciones);
+
         spMateria.setAdapter(adapter);
 
         lytMateria.addView(nuevaVista);

@@ -66,6 +66,7 @@ public class act_tipo_usuario extends AppCompatActivity {
                     tutor.setPrecio(0);
                     tutor.setCalificacion(5);
                     tutor.setImgUser(cuenta.getImgUser());
+                    tutor.setMateria(null);
 
                     Intent intent = new Intent(act_tipo_usuario.this, act_modalidad_precio.class);
                     intent.putExtra("tutor", tutor);

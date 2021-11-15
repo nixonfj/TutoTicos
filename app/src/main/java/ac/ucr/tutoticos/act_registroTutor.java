@@ -52,8 +52,6 @@ public class act_registroTutor extends AppCompatActivity {
             if(agregarTutor(addTutor))
             {
                 Intent intent = new Intent(act_registroTutor.this, act_iniciosesion.class);
-                    /*Tutor t = getTutor(listaTutores, addTutor.getNombreUsuario());
-                    intent.putExtra("tutor", t);*/
                 startActivity(intent);
             }else
             {

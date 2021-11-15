@@ -4,14 +4,21 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.widget.ArrayAdapter;
+
+import java.util.ArrayList;
 
 public class Tutor extends Cuenta implements Parcelable {
+
+    Materia materia;
+    Horario horario;
 
     int idEspecialidad, edad;
     String sexo, descripcion, modalidad;
     double precio, calificacion;
+    ArrayList<Materia> materias;
 
-    public Tutor(String idCuenta, String nombreUsuario, String nombre, String apellido, String correoUsuario, String contrasenna, int tipoCuenta, Bitmap imgUser, int idEspecialidad, int edad, String sexo, String descripcion, String modalidad, double precio, double calificacion) {
+    public Tutor(String idCuenta, String nombreUsuario, String nombre, String apellido, String correoUsuario, String contrasenna, int tipoCuenta, Bitmap imgUser, int idEspecialidad, int edad, String sexo, String descripcion, String modalidad, double precio, double calificacion, ArrayList<Materia> materias) {
         super(idCuenta, nombreUsuario, nombre, apellido, correoUsuario, contrasenna, tipoCuenta, imgUser);
 
         this.idEspecialidad = idEspecialidad;
@@ -21,6 +28,7 @@ public class Tutor extends Cuenta implements Parcelable {
         this.modalidad = modalidad;
         this.precio = precio;
         this.calificacion = calificacion;
+        this.materias = materias;
     }
 
     public Tutor() {
@@ -32,6 +40,7 @@ public class Tutor extends Cuenta implements Parcelable {
         this.modalidad = "Virtual";
         this.precio = 0;
         this.calificacion = 0;
+        this.materias = null;
     }
     protected Tutor(Parcel in){
         idCuenta = in.readString();
@@ -49,6 +58,8 @@ public class Tutor extends Cuenta implements Parcelable {
         precio = in.readDouble();
         calificacion = in.readDouble();
         imgUser = in.readParcelable(Uri.class.getClassLoader());
+        //in.readTypedList(materias, Materia.CREATOR);
+        materias = in.createTypedArrayList(Materia.CREATOR);
     }
 
     @Override
@@ -124,6 +135,14 @@ public class Tutor extends Cuenta implements Parcelable {
         this.calificacion = calificacion;
     }
 
+    public ArrayList<Materia> getMateria() {
+        return materias;
+    }
+
+    public void setMateria(ArrayList<Materia> materias) {
+        this.materias = materias;
+    }
+
     @Override
     public void writeToParcel(Parcel parcel, int i) {
 
@@ -142,7 +161,7 @@ public class Tutor extends Cuenta implements Parcelable {
         parcel.writeDouble(precio);
         parcel.writeDouble(calificacion);
         parcel.writeParcelable(imgUser,i);
-
+        parcel.writeTypedList(materias);
     }
 
 }//fin de la clase

@@ -74,6 +74,7 @@ public class act_modalidad_precio extends AppCompatActivity {
                         tutor.setPrecio(Double.parseDouble(txt_precio.getText().toString()));
                         tutor.setCalificacion(0.0);
                         tutor.setImgUser(tutoR.getImgUser());
+                        tutor.setMateria(tutoR.getMateria());
 
                         Intent intent = new Intent(act_modalidad_precio.this, act_Info_tutor.class);
                         intent.putExtra("tutor", tutor);
