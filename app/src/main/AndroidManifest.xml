@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="ac.ucr.tutoticos">
 
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +12,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+            android:name=".act_modalidad_precio"
+            android:exported="true" />
+        <activity
+            android:name=".act_terminosCondiciones"
+            android:exported="true" />
+        <activity
+            android:name=".act_editar_perfilEstudiante"
+            android:exported="true" />
+        <activity
+            android:name=".act_perfilEstudiante"
+            android:exported="true" />
+        <activity
+            android:name=".act_materia"
+            android:exported="true" />
+        <activity
+            android:name=".act_horario"
+            android:exported="true" />
+        <activity
+            android:name=".act_Info_tutor"
+            android:exported="true" />
         <activity
             android:name=".act_registroTutor"
             android:exported="true" />

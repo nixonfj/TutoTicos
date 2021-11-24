@@ -1,55 +1,46 @@
 package ac.ucr.tutoticos.modelo;
 
-import android.net.Uri;
+import android.graphics.Bitmap;
 import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Cuenta implements Parcelable {
 
-    int idCuenta;
-    String nombreUsuario, nombreCompleto, correoUsuario, contrasenna;
+    String idCuenta;
+    String nombreUsuario, nombre, apellido, correoUsuario, contrasenna;
     int tipoCuenta;
-    //Parcelable imgUser;
+    Bitmap imgUser;
 
-    public Cuenta(int idCuenta, String nombreUsuario, String nombreCompleto, String correoUsuario, String contrasenna, int tipoCuenta/*, Uri imgUser*/) {
+    public Cuenta(String idCuenta, String nombreUsuario, String nombre, String apellido, String correoUsuario, String contrasenna, int tipoCuenta, Bitmap imgUser) {
         this.idCuenta = idCuenta;
         this.nombreUsuario = nombreUsuario;
-        this.nombreCompleto = nombreCompleto;
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.correoUsuario = correoUsuario;
         this.contrasenna = contrasenna;
         this.tipoCuenta = tipoCuenta;
-        //this.imgUser = imgUser;
+        this.imgUser = imgUser;
+    }
+    public Cuenta() {
+        this.idCuenta = "";
+        this.nombreUsuario = "nombreUsuario";
+        this.nombre = "nombre";
+        this.apellido = "apellido";
+        this.correoUsuario = "correoUsuario";
+        this.contrasenna = "contrasenna";
+        this.tipoCuenta = 0;
+        this.imgUser = null;
     }
 
-    public Cuenta() {
-        this.idCuenta = 0;
-        this.nombreUsuario = "";
-        this.nombreCompleto = "";
-        this.correoUsuario = "";
-        this.contrasenna = "";
-        this.tipoCuenta = 0;
-        //this.imgUser = null;
-    }//fin constructor sin
-
     protected Cuenta(Parcel in) {
-        idCuenta = in.readInt();
+        idCuenta = in.readString();
         nombreUsuario = in.readString();
-        nombreCompleto = in.readString();
+        nombre = in.readString();
+        apellido = in.readString();
         correoUsuario = in.readString();
         contrasenna = in.readString();
         tipoCuenta = in.readInt();
-        //imgUser = in.readParcelable(Uri.class.getClassLoader());
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(idCuenta);
-        dest.writeString(nombreUsuario);
-        dest.writeString(nombreCompleto);
-        dest.writeString(correoUsuario);
-        dest.writeString(contrasenna);
-        dest.writeInt(tipoCuenta);
-        //dest.writeParcelable(imgUser, flags);
+        imgUser = in.readParcelable(Bitmap.class.getClassLoader());
     }
 
     public static final Creator<Cuenta> CREATOR = new Creator<Cuenta>() {
@@ -64,19 +55,11 @@ public class Cuenta implements Parcelable {
         }
     };
 
-    /*public byte[] getImgUser() {
-        return imgUser;
-    }
-
-    public void setImgUser(byte[] imgUser) {
-        this.imgUser = imgUser;
-    }*/
-
-    public int getIdCuenta() {
+    public String getIdCuenta() {
         return idCuenta;
     }
 
-    public void setIdCuenta(int idCuenta) {
+    public void setIdCuenta(String idCuenta) {
         this.idCuenta = idCuenta;
     }
 
@@ -88,12 +71,20 @@ public class Cuenta implements Parcelable {
         this.nombreUsuario = nombreUsuario;
     }
 
-    public String getNombreCompleto() {
-        return nombreCompleto;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombreCompleto(String nombreCompleto) {
-        this.nombreCompleto = nombreCompleto;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
     public String getCorreoUsuario() {
@@ -120,9 +111,28 @@ public class Cuenta implements Parcelable {
         this.tipoCuenta = tipoCuenta;
     }
 
+    public Bitmap getImgUser() {
+        return imgUser;
+    }
+
+    public void setImgUser(Bitmap imgUser) {
+        this.imgUser = imgUser;
+    }
+
     @Override
     public int describeContents() {
         return 0;
     }
 
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(idCuenta);
+        parcel.writeString(nombreUsuario);
+        parcel.writeString(nombre);
+        parcel.writeString(apellido);
+        parcel.writeString(correoUsuario);
+        parcel.writeString(contrasenna);
+        parcel.writeInt(tipoCuenta);
+        parcel.writeParcelable(imgUser, i);
+    }
 }//fin de la clase

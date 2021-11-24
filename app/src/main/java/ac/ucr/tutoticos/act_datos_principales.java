@@ -3,9 +3,12 @@ package ac.ucr.tutoticos;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -16,6 +19,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.StorageReference;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -23,7 +30,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import ac.ucr.tutoticos.modelo.Cuenta;
-import ac.ucr.tutoticos.modelo.Tutor;
 
 public class act_datos_principales extends AppCompatActivity {
 
@@ -35,8 +41,12 @@ public class act_datos_principales extends AppCompatActivity {
 
     Uri direccionFoto;
 
+    private act_registroTutor sqliteDBHandler;
+    private SQLiteDatabase sqLiteDatabase;
+
     private final int galeria = 1;
     private final int camara = 2;
+    DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +63,9 @@ public class act_datos_principales extends AppCompatActivity {
 
         cuentaR = getIntent().getParcelableExtra("cuenta");
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("cuenta");
+
         btn_continuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,9 +76,9 @@ public class act_datos_principales extends AppCompatActivity {
                 }
                 else
                 {
-                    String nombreC = txt_nombre.getText().toString() + txt_apellidos.getText().toString();
-
-                    Cuenta cuenta = new Cuenta(0, cuentaR.getNombreUsuario(), nombreC, cuentaR.getCorreoUsuario(), cuentaR.getContrasenna(), cuentaR.getTipoCuenta()/*direccionFoto*/);
+                    String nombre = txt_nombre.getText().toString();
+                    String apellido = txt_apellidos.getText().toString();
+                    Cuenta cuenta = new Cuenta("id", cuentaR.getNombreUsuario(), nombre, apellido, cuentaR.getCorreoUsuario(), cuentaR.getContrasenna(), cuentaR.getTipoCuenta(), null);
 
                     Intent intent = new Intent(act_datos_principales.this, act_tipo_usuario.class);
                     intent.putExtra("cuenta", cuenta);
@@ -77,7 +90,6 @@ public class act_datos_principales extends AppCompatActivity {
         btn_foto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(getApplicationContext(), "Tab", Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(act_datos_principales.this);
                 alertDialog.setTitle("Selecciones la Fotografía");
                 alertDialog.setMessage("¿Qué desea utilizar?");

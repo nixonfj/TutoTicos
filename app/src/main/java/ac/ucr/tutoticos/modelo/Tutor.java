@@ -1,17 +1,25 @@
 package ac.ucr.tutoticos.modelo;
 
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.widget.ArrayAdapter;
+
+import java.util.ArrayList;
 
 public class Tutor extends Cuenta implements Parcelable {
+
+    Materia materia;
+    Horario horario;
 
     int idEspecialidad, edad;
     String sexo, descripcion, modalidad;
     double precio, calificacion;
+    ArrayList<Materia> materias;
 
-    public Tutor(int idCuenta, String nombreUsuario, String nombreCompleto, String correoUsuario, String contrasenna, int tipoCuenta, Uri imgUser, int idEspecialidad, int edad, String sexo, String descripcion, String modalidad, double precio, double calificacion) {
-        super(idCuenta, nombreUsuario, nombreCompleto, correoUsuario, contrasenna, tipoCuenta/*, imgUser*/);
+    public Tutor(String idCuenta, String nombreUsuario, String nombre, String apellido, String correoUsuario, String contrasenna, int tipoCuenta, Bitmap imgUser, int idEspecialidad, int edad, String sexo, String descripcion, String modalidad, double precio, double calificacion, ArrayList<Materia> materias) {
+        super(idCuenta, nombreUsuario, nombre, apellido, correoUsuario, contrasenna, tipoCuenta, imgUser);
 
         this.idEspecialidad = idEspecialidad;
         this.edad = edad;
@@ -20,22 +28,25 @@ public class Tutor extends Cuenta implements Parcelable {
         this.modalidad = modalidad;
         this.precio = precio;
         this.calificacion = calificacion;
+        this.materias = materias;
     }
 
     public Tutor() {
+
         this.idEspecialidad = 0;
         this.edad = 0;
-        this.sexo = "";
-        this.descripcion = "";
-        this.modalidad = "";
+        this.sexo = "sexo";
+        this.descripcion = "descripcion";
+        this.modalidad = "Virtual";
         this.precio = 0;
         this.calificacion = 0;
+        this.materias = null;
     }
-
-    protected Tutor(Parcel in) {
-        idCuenta = in.readInt();
+    protected Tutor(Parcel in){
+        idCuenta = in.readString();
         nombreUsuario = in.readString();
-        nombreCompleto = in.readString();
+        nombre = in.readString();
+        apellido = in.readString();
         correoUsuario = in.readString();
         contrasenna = in.readString();
         tipoCuenta = in.readInt();
@@ -46,7 +57,14 @@ public class Tutor extends Cuenta implements Parcelable {
         modalidad = in.readString();
         precio = in.readDouble();
         calificacion = in.readDouble();
-        //imgUser = in.readParcelable(Uri.class.getClassLoader());
+        imgUser = in.readParcelable(Uri.class.getClassLoader());
+        //in.readTypedList(materias, Materia.CREATOR);
+        materias = in.createTypedArrayList(Materia.CREATOR);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<Tutor> CREATOR = new Creator<Tutor>() {
@@ -117,30 +135,21 @@ public class Tutor extends Cuenta implements Parcelable {
         this.calificacion = calificacion;
     }
 
-    @Override
-    public String toString() {
-        return "Tutor{" +
-                ", idEspecialidad=" + idEspecialidad +
-                ", edad=" + edad +
-                ", sexo='" + sexo + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", modalidad='" + modalidad + '\'' +
-                ", precio=" + precio +
-                ", calificacion=" + calificacion;
+    public ArrayList<Materia> getMateria() {
+        return materias;
     }
 
-
-    @Override
-    public int describeContents() {
-        return 0;
+    public void setMateria(ArrayList<Materia> materias) {
+        this.materias = materias;
     }
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
 
-        parcel.writeInt(idCuenta);
+        parcel.writeString(idCuenta);
         parcel.writeString(nombreUsuario);
-        parcel.writeString(nombreCompleto);
+        parcel.writeString(nombre);
+        parcel.writeString(apellido);
         parcel.writeString(correoUsuario);
         parcel.writeString(contrasenna);
         parcel.writeInt(tipoCuenta);
@@ -151,7 +160,8 @@ public class Tutor extends Cuenta implements Parcelable {
         parcel.writeString(modalidad);
         parcel.writeDouble(precio);
         parcel.writeDouble(calificacion);
-        //parcel.writeParcelable(imgUser,i);
-
+        parcel.writeParcelable(imgUser,i);
+        parcel.writeTypedList(materias);
     }
+
 }//fin de la clase

@@ -1,18 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".act_datos_principales">
+    tools:context=".act_Info_tutor">
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:outlineAmbientShadowColor="#FFFF"
+        android:src="@drawable/background_imagen"
         android:scaleType="centerCrop"
-        android:src="@drawable/background_imagen"/>
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,35 +23,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <LinearLayout
-                android:id="@+id/linearLayout7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-                <ImageView
-                    android:id="@+id/img_foto"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    app:srcCompat="@drawable/user_picture" />
-
-                <Button
-                    android:id="@+id/datosPrincipales_btn_elegir_foto"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:background="#1B9AAA"
-                    android:text="Elegir Foto"
-                    android:textColor="@color/white"
-                    tools:ignore="TextContrastCheck" />
-
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linearLayout"
@@ -68,7 +38,7 @@
                     android:layout_height="106dp"
 
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/logo_oscuro"/>
+                    android:src="@drawable/logo_oscuro" />
 
                 <TextView
                     android:id="@+id/textView2"
@@ -89,19 +59,29 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout7"
-                app:layout_constraintVertical_bias="0.22000003">
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                app:layout_constraintVertical_bias="0.17000002">
+
+                <Spinner
+                    android:id="@+id/spSexo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:popupBackground="@color/principal"
+                    android:spinnerMode="dropdown"
+                    app:backgroundTint="@color/white"
+                    tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
                 <EditText
-                    android:id="@+id/txt_nombre_datos"
+                    android:id="@+id/txt_edad_infoT"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:ems="10"
                     android:fontFamily="@font/nunito"
-                    android:hint="Nombre"
+                    android:inputType="number"
+                    android:hint="Edad"
                     android:textColorHint="@color/white"
-                    android:inputType="textPersonName"
                     android:text=""
                     android:textAlignment="center"
                     android:textColor="@color/white"
@@ -109,16 +89,16 @@
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <EditText
-                    android:id="@+id/txt_apellidos_datos"
+                    android:id="@+id/txt_descripcion_infoT"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:ems="10"
                     android:fontFamily="@font/nunito"
-                    android:hint="Apellidos"
-                    android:textColorHint="@color/white"
                     android:inputType="textPersonName"
                     android:text=""
+                    android:hint="Sobre mi"
+                    android:textColorHint="@color/white"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     app:backgroundTint="@color/white"
@@ -132,21 +112,31 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-                app:layout_constraintVertical_bias="0.23000002">
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
                 <Button
-                    android:id="@+id/datos_btn_continuar"
+                    android:id="@+id/btn_modalidad_continuar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="59dp"
+                    android:backgroundTint="@color/principal"
+                    android:fontFamily="@font/nunito"
+                    android:text="continuar"
+                    android:textColor="@color/white"
+                    app:cornerRadius="8dp" />
+
+                <Button
+                    android:id="@+id/btn_modalidad_volver"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#1B9AAA"
-                    android:text="Continuar"
-                    android:textColor="#FFFFFF"
-                    tools:ignore="TextContrastCheck" />
-            </LinearLayout>
+                    android:background="?android:attr/selectableItemBackground"
+                    android:fontFamily="@font/nunito"
+                    android:textColor="@color/white"
+                    android:text="Volver" />
 
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
